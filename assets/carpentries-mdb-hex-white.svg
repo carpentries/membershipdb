@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg1023"
+   version="1.1"
+   viewBox="0 0 43.942156 50.800452"
+   height="2.0000176in"
+   width="1.7300061in"
+   sodipodi:docname="carpentries-mdb-hex-white.svg"
+   inkscape:version="0.92.2 2405546, 2018-03-11"
+   inkscape:export-filename="/home/mapologo/projects/carpentries/membershipdb/assets/carpentries-mdb-hex-white.png"
+   inkscape:export-xdpi="144"
+   inkscape:export-ydpi="144">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="701"
+     id="namedview25"
+     showgrid="false"
+     inkscape:zoom="1.2291558"
+     inkscape:cx="-85.367973"
+     inkscape:cy="96.000847"
+     inkscape:window-x="0"
+     inkscape:window-y="41"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1017" />
+  <metadata
+     id="metadata1020">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-83.227891,-123.43309)"
+     id="layer1">
+    <path
+       d="M 177.0104,130.4464 56.318454,200.12793 -64.373489,130.4464 l 0,-139.3630494 L 56.318455,-78.598175 177.0104,-8.9166483 Z"
+       id="path817-6-1"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#071159;stroke-width:5.64211542;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(0.17679034,0,0,0.17768777,95.242409,138.03614)" />
+    <g
+       style="fill:#071159;fill-opacity:1"
+       id="g2186-1"
+       transform="matrix(0.97165425,0,0,0.99082923,35.801573,-225.00524)">
+      <path
+         d="m 71.127054,369.16514 -0.161131,-4.13329 3.566848,-2.2474 3.601667,1.93016 0.183091,4.24474 -3.566848,2.24724 z"
+         style="fill:#071159;fill-rule:evenodd;stroke-width:0.26458332;fill-opacity:1"
+         id="path2-39-1" />
+      <path
+         d="m 64.050482,368.36412 -0.02178,-5.93995 7.749804,-4.8368 3.706574,2.21269 c -2.673032,1.73685 -3.901413,2.4688 -6.611276,4.15372 l -0.05096,1.58091 z"
+         style="fill:#071159;fill-rule:evenodd;stroke-width:0.26458332;fill-opacity:1"
+         id="path4-4-5" />
+      <path
+         d="m 64.418782,376.64428 -3.18643,-5.04862 7.616375,-4.45683 0.305779,3.26353 2.855595,1.47876 z"
+         style="fill:#071159;fill-rule:evenodd;stroke-width:0.26458332;fill-opacity:1"
+         id="path6-8-9" />
+      <path
+         d="m 68.406899,375.81272 5.270236,2.73973 7.892362,-4.8283 -0.500989,-4.13859 c -2.73513,1.63606 -3.796162,2.32453 -6.531927,3.95986 l -1.428618,-0.679 z"
+         style="fill:#071159;fill-rule:evenodd;stroke-width:0.26458332;fill-opacity:1"
+         id="path8-12-8" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:6.61458397px;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#071159;fill-opacity:1;stroke:none;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="105.09596"
+       y="158.2507"
+       id="text3782"><tspan
+         sodipodi:role="line"
+         id="tspan3780"
+         x="105.22826"
+         y="158.2507"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333359px;line-height:4.23333359px;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0.26458335px;writing-mode:lr-tb;text-anchor:middle;fill:#071159;fill-opacity:1;stroke-width:0.26458335px">MEMBERSHIP</tspan><tspan
+         sodipodi:role="line"
+         x="105.22826"
+         y="164.86528"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35000038px;line-height:4.23333359px;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0.26458335px;writing-mode:lr-tb;text-anchor:middle;fill:#071159;fill-opacity:1;stroke-width:0.26458335px"
+         id="tspan3784">DB</tspan></text>
+  </g>
+</svg>
