@@ -1,6 +1,6 @@
 from django.db import models
 
-class MembershipTerms(models.Model):
+class MembershipTerm(models.Model):
     TYPE_CHOICES = (
         ('SS','Standard Silver'),
         ('CS','Corporate Silver'),
@@ -91,7 +91,7 @@ class Membership(models.Model):
         on_delete=models.CASCADE
     )               
     member_type = models.ForeignKey(
-        MembershipTerms,
+        MembershipTerm,
         on_delete=models.CASCADE
     )
     domain = models.URLField(max_length=50)
