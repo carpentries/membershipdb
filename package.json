@@ -1,0 +1,14 @@
+{
+  "name": "membershipdb",
+  "version": "0.1",
+  "description": "Web application to manage carpentries membership information.",
+  "main": "index.js",
+  "repository": "https://github.com/carpentries/membershipdb.git",
+  "author": "Francisco Palm <francisco.palm@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.3"
+  }
+}
