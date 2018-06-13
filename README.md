@@ -3,15 +3,15 @@
 ![](https://travis-ci.org/carpentries/mdb.svg?branch=master)
 
 Membership DB is a web-based membership administration application
-for [The Carpentries](tc).  Its target audience is Carpentries
+for [The Carpentries][tc].  Its target audience is Carpentries
 staff that need to manage membership information. There is a Membership
-feature in [AMY](amy), but it was too rigid and didn't capture the kind
+feature in [AMY][amy], but it was too rigid and didn't capture the kind
 of information needed to track and generate agreements. We're reluctant
 to build AMY into a beheamouth of software that does EVERYTHING, so
 scope this as a new tool for now, then think about how we can pass info
 to/from AMY as needed.
 
-Membership DB is built using [Django](django), with a bit of Javascript
+Membership DB is built using [Django][django], with a bit of Javascript
 and other things thrown in.  If you would like to help, please read:
 
 *   the setup instructions below,
@@ -20,7 +20,7 @@ and other things thrown in.  If you would like to help, please read:
 
 *   our [contributor code of conduct](CONDUCT.md).
 
-Please [check with us](contact-address) or open an [issue](issues)
+Please [check with us][contact-address] or open an [issue][issues]
 before starting work on new features.
 
 ## Getting Started
@@ -39,10 +39,10 @@ before starting work on new features.
     ~~~
 
     If you're experienced Python programmer, feel free to create a
-    Python3-compatible [virtualenv](virtualenv) for Membership DB and install
+    Python3-compatible [virtualenv][virtualenv] for Membership DB and install
     dependencies from `requirements.txt`.
 
-1.  Install [Yarn](yarn), the tool that manages Membership DB's JavaScript and CSS
+1.  Install [Yarn][yarn], the tool that manages Membership DB's JavaScript and CSS
     dependencies, following the directions according your operating system in
     https://yarnpkg.com/lang/en/docs/install/:
 
