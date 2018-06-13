@@ -1,8 +1,37 @@
+from datetime import datetime
+
+from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
+from django.contrib.contenttypes.models import ContentType
 from django.db import models
 
 from djmoney.models.fields import MoneyField
 from django_countries.fields import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
+
+class Note(models.Model):
+    """
+    Generic notes for all the models
+    """
+    title = models.CharField(
+        verbose_name='Note title',
+        max_length=64,
+        help_text='Title of the Note'
+        )
+    content = models.TextField(
+        verbose_name='Note content',
+        max_length=512,
+        help_text='Content of the Note'
+        )
+    date_time = models.DateTimeField(
+        verbose_name='Note time',
+        default=datetime.now,
+        help_text='Date and time of the last update of the note'
+        )
+
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey('content_type', 'object_id')
+
 
 class MembershipTerm(models.Model):
     """
@@ -69,6 +98,7 @@ class MembershipTerm(models.Model):
         'Offered coordinator?',
         help_text='Do they have a workshop coordinator offered up as in-kind effort?'
         )
+    notes = GenericRelation(Note)
 
 class Organization(models.Model):
     """
@@ -110,6 +140,7 @@ class Organization(models.Model):
         'Reistered vendor?',
         help_text='Are they registered as a vendor with CI?'
         )
+    notes = GenericRelation(Note)
 
 class Person(models.Model):
     """
@@ -185,6 +216,7 @@ class Person(models.Model):
         help_text='Phone number in + notation',
         blank=True, null=True
         )
+    notes = GenericRelation(Note)
 
 class Membership(models.Model):
     """
@@ -314,7 +346,6 @@ class Membership(models.Model):
         help_text='URLs in AMY for Training event',
         blank=True, null=True
         )
+    notes = GenericRelation(Note)
 
-
-# class Notes(models.Model):
     
