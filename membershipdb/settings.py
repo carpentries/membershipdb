@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'djmoney',
+    'django_countries',
+    'phonenumber_field',
     'membership',
 ]
 
