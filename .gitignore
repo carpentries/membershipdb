@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 membership/__pycache__/
+membershipdb/__pycache__/
 
 # C extensions
 *.so
