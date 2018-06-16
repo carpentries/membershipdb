@@ -1,5 +1,5 @@
-AMY is an open source project, and we welcome contributions of all
-kinds.  By contributing, you are agreeing that Software Carpentry may
+Membership DB is an open source project, and we welcome contributions of all
+kinds.  By contributing, you are agreeing that The Carpentries may
 redistribute your work under [this license][license].  You also agree
 to abide by our [contributor code of conduct][conduct].
 
@@ -18,10 +18,10 @@ If you would like to know what we need help with, please see the
 *   New functionality should be accompanied by unit tests where feasible.
 *   All dates should be formatted as YYYY-MM-DD.
 
-The AMY logo was made using the Bradley Hand font from LibreOffice.
+The Membership DB logo uses is based in the Carpentries logo, pending of
 
 [conduct]: CONDUCT.md
-[issues]: https://github.com/swcarpentry/amy/issues
+[issues]: https://github.com/carpentries/membershipdb/issues
 [license]: LICENSE.md
 [pep8]: https://www.python.org/dev/peps/pep-0008/
 [pep257]: https://www.python.org/dev/peps/pep-0257/
