@@ -64,7 +64,7 @@ before starting work on new features.
     $ make serve
     ~~~
 
-    **Note**:  this also installs front-end dependencies for AMY, such as jQuery or Bootstrap.
+    **Note**:  this also installs front-end dependencies for Membership DB, such as jQuery or Bootstrap.
 
 7.  Open <http://localhost:8000/membership/> in your browser and start clicking.
 
@@ -119,7 +119,7 @@ before starting work on new features.
 [amy]: https://github.com/swcarpentry/amy
 [contact-address]: mailto:francisco.palm@gmail.com
 [django]: https://www.djangoproject.com
-[issues]: https://github.com/arpentries/membershipdb/issues
+[issues]: https://github.com/carpentries/membershipdb/issues
 [tc]: http://carpentries.org
 [virtualenv]: https://virtualenv.pypa.io/en/latest/userguide.html
 [yarn]: https://yarnpkg.com
