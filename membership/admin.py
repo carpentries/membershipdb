@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.contenttypes.admin import GenericTabularInline
 
-from .models import Note, Term, Organization, Person, Membership
+from .models import Note, Term, Organization, Contact, Membership
 
 class NoteInline(GenericTabularInline):
     model = Note
@@ -17,7 +17,7 @@ class OrganizationAdmin(admin.ModelAdmin):
         NoteInline,
     ]
 
-class PersonAdmin(admin.ModelAdmin):
+class ContactAdmin(admin.ModelAdmin):
     inlines = [
         NoteInline,
     ]
@@ -30,5 +30,5 @@ class MembershipAdmin(admin.ModelAdmin):
 admin.site.register(Note)
 admin.site.register(Term, TermAdmin)
 admin.site.register(Organization, OrganizationAdmin)
-admin.site.register(Person, PersonAdmin)
+admin.site.register(Contact, ContactAdmin)
 admin.site.register(Membership, MembershipAdmin)

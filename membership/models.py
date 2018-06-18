@@ -132,7 +132,6 @@ class Organization(models.Model):
     members = models.ForeignKey(
         'self',
         blank=True, null=True,
-        related_name='contact',
         on_delete=models.CASCADE,
         help_text='The names of those members if umbrella'
         )
@@ -142,7 +141,7 @@ class Organization(models.Model):
         )
     notes = GenericRelation(Note)
 
-class Person(models.Model):
+class Contact(models.Model):
     """
     Contact persons from organizations.
     """
