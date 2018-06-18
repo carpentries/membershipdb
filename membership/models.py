@@ -33,7 +33,7 @@ class Note(models.Model):
     content_object = GenericForeignKey('content_type', 'object_id')
 
 
-class MembershipTerm(models.Model):
+class Term(models.Model):
     """
     Terms on which are based the different types of Memberships.
     """
@@ -278,7 +278,7 @@ class Membership(models.Model):
         help_text='Long form name of member'
         )
     member_type = models.ForeignKey(
-        MembershipTerm,
+        Term,
         on_delete=models.CASCADE,
         help_text='Type of membership'
         )
