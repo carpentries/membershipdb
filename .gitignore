@@ -1,0 +1,14 @@
+.vscode/
+package.json
+
+# Django
+*.sqlite3
+
+# Byte-compiled
+membership/__pycache__/
+membership/migrations/__pycache__/
+membershipdb/__pycache__/
+
+# Internal
+tmp/
+
