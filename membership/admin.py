@@ -8,6 +8,11 @@ class NoteInline(GenericTabularInline):
     max_num = 1
 
 class TermAdmin(admin.ModelAdmin):
+    list_display = (
+        'mem_type', 'n_workshops', 'n_instructors',
+        'reserve', 'inh_trainer', 'local_train',
+        'publicize', 'recruit', 'coordinate'
+        )
     inlines = [
         NoteInline,
     ]
