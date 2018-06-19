@@ -41,24 +41,29 @@ class Term(models.Model):
     CORPORATE_SILVER = 'CS'
     STANDARD_GOLD = 'SG'
     STANDARD_PLATINUM = 'SP'
-    COORDINATED_PLATINUM = 'CP'
+    COORDINATE_PLATINUM = 'CP'
+    INSTRUCTOR_TRAINING = 'IT'
     SWC_CONTRACT = 'SC'
     DC_CONTRACT = 'DC'
     CONTRACT = 'CT'
+    STANDARD_BRONZE = 'SB'
 
     TYPE_CHOICES = (
         (STANDARD_SILVER,'Standard Silver'),
         (CORPORATE_SILVER,'Corporate Silver'),
         (STANDARD_GOLD,'Standard Gold'),
         (STANDARD_PLATINUM,'Standard Platinum'),
-        (COORDINATED_PLATINUM,'Coordinated Platinum'),
+        (COORDINATE_PLATINUM,'Coordinate Platinum'),
+        (INSTRUCTOR_TRAINING, 'Instructor Training'),
         (SWC_CONTRACT,'SWC Contract'),
         (DC_CONTRACT,'DC Contract'),
         (CONTRACT,'Contract'),
+        (STANDARD_BRONZE, 'Standard Bronze')
     )
 
     mem_type = models.CharField(
         'Membership type',
+        unique=True,
         max_length=2,
         choices=TYPE_CHOICES,
         default=CONTRACT,
@@ -82,7 +87,7 @@ class Term(models.Model):
         'Inhouse trainer?',
         help_text='Do they have an inhouse trainer?'
         )
-    loc_train = models.BooleanField(
+    local_train = models.BooleanField(
         'Local training?',
         help_text='Are they eligible for local training?'
         )
@@ -99,6 +104,9 @@ class Term(models.Model):
         help_text='Do they have a workshop coordinator offered up as in-kind effort?'
         )
     notes = GenericRelation(Note)
+
+    def __str__(self):
+        return dict(self.TYPE_CHOICES)[self.mem_type]
 
 class Organization(models.Model):
     """
