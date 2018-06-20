@@ -18,6 +18,10 @@ class TermAdmin(admin.ModelAdmin):
     ]
 
 class OrganizationAdmin(admin.ModelAdmin):
+    list_display = (
+        'name', 'shortname', 'country',
+        'domain', 'umbrella', 'vendor_reg'
+        )    
     inlines = [
         NoteInline,
     ]

@@ -106,7 +106,7 @@ class Term(models.Model):
     notes = GenericRelation(Note)
 
     def __str__(self):
-        return dict(self.TYPE_CHOICES)[self.mem_type]
+        return "<Term> {}".format(dict(self.TYPE_CHOICES)[self.mem_type])
 
 class Organization(models.Model):
     """
@@ -144,10 +144,14 @@ class Organization(models.Model):
         help_text='The names of those members if umbrella'
         )
     vendor_reg = models.BooleanField(
-        'Reistered vendor?',
+        'Registered vendor?',
         help_text='Are they registered as a vendor with CI?'
         )
     notes = GenericRelation(Note)
+
+    def __str__(self):
+        return "<Organization> {}".format(self.shortname)
+
 
 class Contact(models.Model):
     """
