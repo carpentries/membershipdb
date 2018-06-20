@@ -8,7 +8,7 @@ could be useful as an example for further projects.
 import csv
 
 from django.core.management.base import BaseCommand, CommandError
-from membership.models import Term
+from membership.models import Term, Organization
 
 dmemtype = dict([(v, k) for k, v in Term.TYPE_CHOICES])
 
@@ -20,12 +20,12 @@ def read_csv(filename):
             csv_data.append(row)
     return csv_data
 
-def add_terms(terms):
-    def to_bool(val):
-        return True if val == "true" else False
+def to_bool(val):
+    return True if val == "true" else False
 
+def add_terms(terms):
     for row in terms:
-        term, created = Term.objects.update_or_create(
+        term, updated = Term.objects.update_or_create(
             mem_type=dmemtype[row["memtype"]],
             defaults={
                 "n_workshops": int(row["numorgworkshops"]),
@@ -38,6 +38,22 @@ def add_terms(terms):
                 "coordinate": to_bool(row["coordinate"])
             }
         )
+
+def ifUKsetGB(country):
+    return country if country != "UK" else "GB"
+
+def add_orgs(orgs):
+    for row in orgs:
+        org, updated = Organization.objects.update_or_create(
+            shortname=row["shortname"],
+            defaults={
+                "name": row["partner"],
+                "country": ifUKsetGB(row["Country"]),
+                "domain": row["domain"],
+                "umbrella": to_bool(row["umbrella"]),
+                'vendor_reg': to_bool(row["Vendor Registration CI Completed"])
+            }
+        )
         
 
 class Command(BaseCommand):
@@ -47,6 +63,8 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         terms = read_csv("tmp/terms.csv")
         add_terms(terms)
+        orgs = read_csv("tmp/organizations.csv")
+        add_orgs(orgs)
 
 
 
