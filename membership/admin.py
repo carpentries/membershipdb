@@ -7,6 +7,14 @@ class NoteInline(GenericTabularInline):
     model = Note
     max_num = 1
 
+class OrgInline(admin.TabularInline):
+    model = Organization
+    max_num = 1
+
+class ContactInline(admin.TabularInline):
+    model = Contact
+    max_num = 1
+
 class TermAdmin(admin.ModelAdmin):
     list_display = (
         'mem_type', 'n_workshops', 'n_instructors',
@@ -23,10 +31,18 @@ class OrganizationAdmin(admin.ModelAdmin):
         'domain', 'umbrella', 'vendor_reg'
         )    
     inlines = [
-        NoteInline,
+        ContactInline,
+        NoteInline
     ]
 
 class ContactAdmin(admin.ModelAdmin):
+    list_display = (
+        'organization', 'name', 'last_name',
+        'title', 'email', 'advisory_council',
+        'signatory', 'member_contact', 'billing_contact',
+        'trainer', 'merger_notify', 'nf2nci_letter',
+        'hubspot', 'address', 'phone'
+        )  
     inlines = [
         NoteInline,
     ]
