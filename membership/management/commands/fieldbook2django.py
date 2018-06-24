@@ -8,7 +8,7 @@ could be useful as an example for further projects.
 import csv
 
 from django.core.management.base import BaseCommand, CommandError
-from membership.models import Term, Organization
+from membership.models import Term, Organization, Contact
 
 dmemtype = dict([(v, k) for k, v in Term.TYPE_CHOICES])
 
@@ -54,7 +54,31 @@ def add_orgs(orgs):
                 'vendor_reg': to_bool(row["Vendor Registration CI Completed"])
             }
         )
-        
+
+def add_contacts(contacts):
+    for row in contacts:
+        org = Organization.objects.get(domain=row["shortname"])
+        name, last_name=row["partnercontact"].split()
+        contact, updated = Contact.objects.update_or_create(
+            name=name,
+            last_name=last_name,
+            defaults={
+                "organization": org,
+                "title": row["title"],
+                "email": row["partneremail"],
+                "advisory_council": to_bool(row["Advisory Council"]),
+                "signatory": to_bool(row["Signatory"]),
+                "member_contact": to_bool(row["Member Contact"]),
+                "billing_contact": to_bool(row["Billing Contact"]),
+                "trainer": to_bool(row["Instructor Trainer"]),
+                "merger_notify": to_bool(row["MergerNotify"]),
+                "nf2nci_letter": to_bool(row["NF2CIAssignment"]),
+                "hubspot": row["HubSpot"],
+                "address": row["Address"],
+                "phone": row["partnerphone"]
+            }
+        )
+
 
 class Command(BaseCommand):
     args = '<foo bar ...>'
@@ -65,6 +89,8 @@ class Command(BaseCommand):
         add_terms(terms)
         orgs = read_csv("tmp/organizations.csv")
         add_orgs(orgs)
+        contacts = read_csv("tmp/persons.csv")
+        add_contacts(contacts)
 
 
 
