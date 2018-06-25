@@ -106,7 +106,7 @@ class Term(models.Model):
     notes = GenericRelation(Note)
 
     def __str__(self):
-        return "<Term> {}".format(dict(self.TYPE_CHOICES)[self.mem_type])
+        return dict(self.TYPE_CHOICES)[self.mem_type]
 
 class Organization(models.Model):
     """
@@ -150,7 +150,7 @@ class Organization(models.Model):
     notes = GenericRelation(Note)
 
     def __str__(self):
-        return "<Organization> {}".format(self.shortname)
+        return self.shortname
 
 
 class Contact(models.Model):
@@ -228,6 +228,9 @@ class Contact(models.Model):
         blank=True, null=True
         )
     notes = GenericRelation(Note)
+
+    def __str__(self):
+        return "{} {}: {}".format(self.name, self.last_name, self.organization)
 
 class Membership(models.Model):
     """
@@ -358,5 +361,9 @@ class Membership(models.Model):
         blank=True, null=True
         )
     notes = GenericRelation(Note)
+
+    def __str__(self):
+        return "{} {} {}".format(self.organization, self.member_type, self.status)
+
 
     
