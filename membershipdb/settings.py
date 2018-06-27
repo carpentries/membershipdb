@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
+import json
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -19,13 +20,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '%52rr&@+!j_uy*tlrzj6%q-h9cr)^ylcl=**zsd70xk(+(cd_1'
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = json.loads(os.environ.get('MDB_DEBUG', 'true'))
+# For deployment in production:
+# AMY_DEBUG=false AMY_SECRET_KEY="..." ./manage.py runserver ...
 
-ALLOWED_HOSTS = []
+if DEBUG:
+    SECRET_KEY = '%52rr&@+!j_uy*tlrzj6%q-h9cr)^ylcl=**zsd70xk(+(cd_1'
+else:
+    SECRET_KEY = None
+SECRET_KEY = os.environ.get('MDB_SECRET_KEY', SECRET_KEY)
+
+ALLOWED_HOSTS = ["memberdb.carpentries.org"]
 
 
 # Application definition
