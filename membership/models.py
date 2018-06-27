@@ -255,11 +255,13 @@ class Membership(models.Model):
     )
 
     NEW = 'N'
-    RENEW = 'R'
+    RENEWAL = 'R'
+    OTHER = 'O'
 
     NEW_RENEW_CHOICES = (
         (NEW, 'New'),
-        (RENEW, 'Renew'),
+        (RENEWAL, 'Renewal'),
+        (OTHER, 'Other')
     )
 
     PAID = 'PD'
@@ -272,18 +274,20 @@ class Membership(models.Model):
         (PAID, 'Paid'),
         (SENT, 'Sent'),
         (REQUESTED, 'Requested'),
-        (NOT_READY, 'Not Ready to Request'),
+        (NOT_READY, 'Not ready to request'),
         (NUMFOCUS, 'Request from NumFOCUS'),
     )
 
     COMPLETE = 'CP'
     SCHEDULED = 'SD'
     # PENDING = 'PD' Already defined
+    SCHINPROGRESS = 'SP'
 
     EVENT_STATUS = (
         (COMPLETE, 'Complete'),
         (SCHEDULED, 'Scheduled'),
         (PENDING, 'Pending'),
+        (SCHINPROGRESS, 'Scheduling in Progress')
     )
 
     organization = models.ForeignKey(
@@ -327,11 +331,11 @@ class Membership(models.Model):
         help_text='Did they pay all their membership up-front?'
         )
     # term calculated field: expires - start_date in years
-    start_date = models.DateTimeField(
+    start_date = models.DateField(
         'Starting date',
         help_text='The starting date for the membership'
         )
-    expires = models.DateTimeField(
+    expires = models.DateField(
         'Expiring date',
         help_text='Calculated as start date plus membership term duration'
         )
@@ -342,14 +346,14 @@ class Membership(models.Model):
         )
     invoice_request = models.CharField(
         'Invoice request',
-        max_length=18, 
+        max_length=2, 
         choices=INVOICE_REQUEST,
         help_text='Status of invoice',
         blank=True, null=True
         )
     event_status = models.CharField(
         'Event status',
-        max_length=9,
+        max_length=2,
         choices=EVENT_STATUS,
         default=PENDING,
         help_text='Have we held instructor training for them yet?',
