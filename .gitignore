@@ -9,6 +9,7 @@ node_modules/
 membership/__pycache__/
 membership/migrations/__pycache__/
 membershipdb/__pycache__/
+
 membership/management/commands/__pycache__/
 
 # Internal
