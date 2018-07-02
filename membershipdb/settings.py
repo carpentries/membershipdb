@@ -31,8 +31,8 @@ else:
     SECRET_KEY = None
 SECRET_KEY = os.environ.get('MDB_SECRET_KEY', SECRET_KEY)
 
-ALLOWED_HOSTS = ["memberdb.carpentries.org"]
-
+#ALLOWED_HOSTS = ["memberdb.carpentries.org"]
+ALLOWED_HOSTS = ["127.0.0.1"]
 
 # Application definition
 
@@ -77,6 +77,10 @@ TEMPLATES = [
         },
     },
 ]
+
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates/membership'),
+)
 
 WSGI_APPLICATION = 'membershipdb.wsgi.application'
 
@@ -129,4 +133,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
