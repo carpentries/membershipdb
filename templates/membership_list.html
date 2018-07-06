@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Memberships</title>
+  </head>
+  <body>
+    <h1>Memberships</h1>
+
+    {% for membership in memberships %}
+      {{ membership.status }} <br>
+    {% endfor %}
+
+  </body>
+</html>
