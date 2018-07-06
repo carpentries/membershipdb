@@ -1,9 +1,9 @@
 from django.conf.urls import url, include
 
-from . import views
+from membership import views
 
 urlpatterns = [
-    url(r'^$', views.home),
+    url(r'^$', views.home, name='home'),
 
     # url(r'^organizations/', include([
     #     url(r'^$', views.AllOrganizations.as_view(), name='all_organizations'),
