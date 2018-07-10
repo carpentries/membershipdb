@@ -32,7 +32,7 @@ else:
 SECRET_KEY = os.environ.get('MDB_SECRET_KEY', SECRET_KEY)
 
 #ALLOWED_HOSTS = ["memberdb.carpentries.org"]
-ALLOWED_HOSTS = ["127.0.0.1"]
+ALLOWED_HOSTS = ["127.0.0.1"] #Must be changed for the url site
 
 # Application definition
 
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django_countries',
     'phonenumber_field',
     'membership',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -65,7 +66,7 @@ ROOT_URLCONF = 'membershipdb.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,10 +78,6 @@ TEMPLATES = [
         },
     },
 ]
-
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'templates/membership'),
-)
 
 WSGI_APPLICATION = 'membershipdb.wsgi.application'
 
@@ -134,5 +131,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'), ] #Must be changed for STATIC_ROOT
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
