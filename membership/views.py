@@ -27,24 +27,22 @@ def note_list(request):
 def organization_id(request, id):
     try:
         organization = Organization.objects.get(id=id)
-        #import pdb; pdb.set_trace()
     except Organization.DoesNotExist:
         raise Http404
-    return render(request, 'organization_id.html', {'organization_id': organization_id})
-
+    return render(request, 'organization_id.html', {'organization': organization})
 
 def membership_id(request, id):
     membership = Membership.objects.get(id=id)
-    return render(request, 'membership_id.html', {'membership_id': membership_id})
+    return render(request, 'membership_id.html', {'membership': membership})
 
 def contact_id(request, id):
     contact = Contact.objects.get(id=id)
-    return render(request, 'contact_id.html', {'contact_id': contact_id})
+    return render(request, 'contact_id.html', {'contact': contact})
 
 def term_id(request, id):
     term = Term.objects.get(id=id)
-    return render(request, 'term_id.html', {'term_id': term_id})
+    return render(request, 'term_id.html', {'term': term})
 
 def note_id(request, id):
     note = Note.objects.get(id=id)
-    return render(request, 'note_id.html', {'note_id': note_id})
+    return render(request, 'note_id.html', {'note': note})

@@ -17,18 +17,28 @@
       <thead class="thead-dark">
         <tr>
           <th>Organization</th>
-          <th>Name</th>
+          <th>Country</th>
+          <th>Umbrella</th>
         </tr>
       </thead>
       <tbody>
+        <p>
         {% for organization in organizations %}
           <tr>
             <td>
               {{ organization.name }}
             </td>
-            <td><small class="text-muted d-block">{{ organization.shortname }}</small></td>
+            <td><small class="text-muted d-block">{{ organization.country.name }}</small></td>
+            <!-- Material unchecked -->
+              
+            
+            
+            <td><div class="form-check">
+                <input type="checkbox" class="form-check-input" id="organizationUmbrella" {% if organization.umbrella %}checked="checked"{% endif %}> 
+            </div></td>
           </tr>
         {% endfor %}
+        </p>
       </tbody>
     </table>
   </div>
