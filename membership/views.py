@@ -32,7 +32,10 @@ def organization_id(request, id):
     return render(request, 'organization_id.html', {'organization': organization})
 
 def membership_id(request, id):
-    membership = Membership.objects.get(id=id)
+    try:
+        membership = Membership.objects.get(id=id)
+    except Organization.DoesNotExist:
+        raise Http404    
     return render(request, 'membership_id.html', {'membership': membership})
 
 def contact_id(request, id):

@@ -18,7 +18,7 @@
         <tr>
           <th>Organization</th>
           <th>Country</th>
-          <th>Umbrella</th>
+          <th style="text-align:center;">Umbrella</th>
         </tr>
       </thead>
       <tbody>
@@ -29,11 +29,7 @@
               {{ organization.name }}
             </td>
             <td><small class="text-muted d-block">{{ organization.country.name }}</small></td>
-            <!-- Material unchecked -->
-              
-            
-            
-            <td><div class="form-check">
+            <td style="text-align:center;"><div class="form-check">
                 <input type="checkbox" class="form-check-input" id="organizationUmbrella" {% if organization.umbrella %}checked="checked"{% endif %}> 
             </div></td>
           </tr>

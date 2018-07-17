@@ -4,35 +4,33 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Contacts</title>
+    <title>Terms</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
   </head>
   <body>
   <div class="container">
       <ol class="breadcrumb my-4">
-        <h1 class="breadcrumb-item active">Contacts</h1>
+        <h1 class="breadcrumb-item active">Terms</h1>
       </ol>
 
     <table class="table">
       <thead class="thead-dark">
         <tr>
-          <th>Organization</th>
-          <th>Name</th>
-          <th>Lastname</th>
-          <th>Title</th>
-          <th style="text-align:center;">Primary Contact</th>
+          <th>Membership Type</th>
+          <th># Workshops</th>
+          <th># Instructors</th>
+          <th style="text-align:center;">Inhouse Trainer</th>
         </tr>
       </thead>
       <tbody>
         <p>
-        {% for contact in contacts %}
+        {% for term in terms %}
           <tr>
-            <td>{{ contact.organization }}</td>
-            <td>{{ contact.name }}</td>
-            <td>{{ contact.last_name }}</td>
-            <td>{{ contact.title }}</td>
+            <td>{{ term.mem_type }}</td>
+            <td>{{ term.n_workshopse }}</td>
+            <td>{{ term.n_instructors }}</td>
             <td style="text-align:center;"><div class="form-check">
-                <input type="checkbox" class="form-check-input center" id="contactPrimary" {% if contact.member_contact %}checked="checked"{% endif %}> 
+                <input type="checkbox" class="form-check-input center" id="inhouseTrainer" {% if term.inh_trainer %}checked="checked"{% endif %}> 
             </div></td>
           </tr>
         {% endfor %}

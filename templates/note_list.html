@@ -4,32 +4,30 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Memberships</title>
+    <title>Notes</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
   </head>
   <body>
   <div class="container">
       <ol class="breadcrumb my-4">
-        <h1 class="breadcrumb-item active">Memberships</h1>
+        <h1 class="breadcrumb-item active">Notes</h1>
       </ol>
 
     <table class="table">
       <thead class="thead-dark">
         <tr>
-          <th>Organization</th>
-          <th>Membership Type</th>
-          <th>Status</th>
+          <th>Title</th>
+          <th>Content</th>
+          <th>Dates</th>
         </tr>
       </thead>
       <tbody>
         <p>
-        {% for membership in memberships %}
+        {% for note in notes %}
           <tr>
-            <td>
-              {{ membership.organization }}
-            </td>
-            <td><small class="text-muted d-block">{{ membership.member_type }}</small></td> 
-            <td><small class="text-muted d-block">{{ membership.status }}</small></td> 
+            <td>{{ note.title }}</td>
+            <td>{{ note.content|slice:"50" }}{% if note.content|length > 50 %}...{% endif %}</td>
+            <td>{{ note.date_time }}</td>
           </tr>
         {% endfor %}
         </p>
