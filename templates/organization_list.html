@@ -1,18 +1,19 @@
 {% extends 'base.html' %}
-{% block content %}
+
 {% load static %}
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Organizations</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-  </head>
-  <body>
-  <div class="container">
-      <ol class="breadcrumb my-4">
-        <h1 class="breadcrumb-item active">Organizations</h1>
-      </ol>
 
+{% block title %}Organizations{% endblock %}
+
+{% block breadcrumb %}
+
+  <ol class="breadcrumb my-1">
+    <h1 class="breadcrumb-item active">Organizations</h1>
+  </ol>
+  {% endblock %}
+
+{% block content %}
+  <body>
     <table class="table">
       <thead class="thead-dark">
         <tr>
@@ -37,7 +38,6 @@
         </p>
       </tbody>
     </table>
-  </div>
   </body>
 </html>
 

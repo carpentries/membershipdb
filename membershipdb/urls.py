@@ -20,5 +20,6 @@ urlpatterns = [
     url(r'^contact/(?P<id>\d+)/$', membership_views.contact_id, name='contact_id'),
     url(r'^term/(?P<id>\d+)/$', membership_views.term_id, name='term_id'),
     url(r'^note/(?P<id>\d+)/$', membership_views.note_id, name='note_id'),
+    url(r'^organization/(?P<id>\d+)/organization_form/$', membership_views.organization_form, name='organization_form'),
 ]
 

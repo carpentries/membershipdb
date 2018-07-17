@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'organization_list' %}">Organization</a></li>
+  <li class="breadcrumb-item">{{ organization.name }}</li>
+{% endblock %}
+
 {% block content %}
-    <div class="container">
-      <ol class="breadcrumb my-5">
-        <li class="breadcrumb-item">Organizations</li>
-        <li class="breadcrumb-item active">{{ organization.name }}</li>
-      </ol>
-
-
-    </div>
+  <div class="container">
+    <ol class="breadcrumb my-5">
+      <li class="breadcrumb-item">Organization</li>
+      <li class="breadcrumb-item active">{{ organization.name }}</li>
+    </ol>
+  </div>
 {% endblock %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Organization, Membership, Contact, Term, Note
 
 def home(request):
@@ -49,3 +49,7 @@ def term_id(request, id):
 def note_id(request, id):
     note = Note.objects.get(id=id)
     return render(request, 'note_id.html', {'note': note})
+
+def organization_form(request, id):
+    organization = get_object_or_404(Organization, id=id)
+    return render(request, 'organization_form.html', {'organization': organization})
