@@ -7,6 +7,12 @@
 
 {% block content %}
 <div class="container">
+    <div class="row float-right">
+        <div class="btn btn-outline-primary" href="#">Edit</div>
+        <div class="btn btn-outline-primary" href="#">Delete</div>
+    </div>
+<br>
+<br>
   <div class="row">
       <div class="col-6">Name: {{ organization.name }}</div>
       <div class="col-6">Shortname: {{ organization.shortname }}</div>
@@ -33,8 +39,10 @@
       </div>
       </div>
   </div>
+  <br>
+  <br>
   <div class="row">
-      <div class="col-12">Notes: {{ organization.notes.content_type.organization }}</div>
+      <div class="col-12">Notes: {{ organization.notes.content_type.organization.content }}</div>
     </div>
 
 </div>
