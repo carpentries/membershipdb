@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block breadcrumb %}
+
   <li class="breadcrumb-item"><a href="{% url 'membership_list' %}">Membership</a></li>
   <li class="breadcrumb-item">{{ membership.organization }}</li>
 
@@ -8,6 +9,12 @@
 
 {% block content %}
 <div class="container">
+  <div class="row float-right">
+      <div class="btn btn-outline-primary" href="{% url 'membership_edit' %}}">Edit</div>
+      <div class="btn btn-outline-primary" href="#">Delete</div>
+  </div>
+<br>
+<br>
   <div class="row">
       <div class="col-6">Organization: {{ membership.organization }}</div>
       <div class="col-6">Type of membership: {{ membership.member_type }}</div>
@@ -46,7 +53,7 @@
   <br>
 
   <div class="row">
-      <div class="col-12">Notes: {{ membership.notes.content_type.membership }}</div>
+      <div class="col-12">Notes: {{ membership.notes }}</div>
     </div>
 
 </div>

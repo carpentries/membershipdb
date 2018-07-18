@@ -10,13 +10,11 @@ def organization_list(request):
 
 def membership_list(request):
     memberships = Membership.objects.all()
-    return render(request, 'membership_list.html', {'memberships': memberships})
+    return render(request, 'membership_list.html', {'memberships': memberships},)
     
 def contact_list(request):
     contacts = Contact.objects.all()
     return render(request, 'contact_list.html', {'contacts': contacts})    
-
-
 
 def term_list(request):
     d_term_type = dict(Term.TYPE_CHOICES)
@@ -39,7 +37,7 @@ def organization_id(request, id):
 def membership_id(request, id):
     try:
         membership = Membership.objects.get(id=id)
-    except Organization.DoesNotExist:
+    except Membership.DoesNotExist:
         raise Http404    
     return render(request, 'membership_id.html', {'membership': membership})
 
@@ -54,6 +52,19 @@ def term_id(request, id):
 def note_id(request, id):
     note = Note.objects.get(id=id)
     return render(request, 'note_id.html', {'note': note})
+
+def organization_edit(request, id):
+    organizations = Organization.objects.all()
+    return render(request, 'organization_edit.html', {'organizations': organizations})
+
+def membership_edit(request, id):
+    d_status_type = dict(Membership.STATUS_CHOICES)
+    memberships = Membership.objects.all()
+    return render(request, 'membership_edit.html', {'memberships': memberships, 'status_type': d_status_type})
+
+def contact_edit(request, id):
+    contacts = Contact.objects.all()
+    return render(request, 'contact_edit.html', {'contacts': contacts})
 
 def organization_form(request, id):
     organization = get_object_or_404(Organization, id=id)
