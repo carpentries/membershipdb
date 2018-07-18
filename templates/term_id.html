@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'term_list' %}">Term</a></li>
+  <li class="breadcrumb-item">{{ term.mem_type }}</li>
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+      <div class="col-4">Type of membership: {{ term.mem_type }}</div>
+      <div class="col-4">Number of workshops: {{ term.n_workshops }}</div>
+      <div class="col-4">Number of instructors: {{ term.n_instructors }}</div>
+  </div>
+
+  <br>
+  <div class="row">
+    <div class="col-4">
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="termReserved" {% if term.reserve %}checked="checked"{% endif %}> 
+    </div>
+    <label class="col-sm-2 col-form-label">Reserved seats?</label>
+    </div>
+    <div class="col-4">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="termInhouse" {% if term.inh_trainer %}checked="checked"{% endif %}> 
+      </div>
+      <label class="col-sm-2 col-form-label">Inhouse trainer?</label>
+      </div>
+      <div class="col-4">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="termLocaltrain" {% if term.local_train %}checked="checked"{% endif %}> 
+      </div>
+      <label class="col-sm-2 col-form-label">Local training?</label>
+      </div>
+  </div>
+  <br>
+    <div class="row">
+    <div class="col-4">
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="termPublicize" {% if term.publicize %}checked="checked"{% endif %}> 
+    </div>
+    <label class="col-sm-2 col-form-label">Publicize?</label>
+    </div>
+    <div class="col-4">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="termRecruit" {% if term.recruit %}checked="checked"{% endif %}> 
+      </div>
+      <label class="col-sm-2 col-form-label">Recruit help?</label>
+      </div>
+      <div class="col-4">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="termCoordinate" {% if term.coordinate %}checked="checked"{% endif %}> 
+      </div>
+      <label class="col-sm-2 col-form-label">Offered coordinator?</label>
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-12">Notes: {{ term.notes.content_type.term }}</div>
+    </div>
+
+</div>
+
+{% endblock %}

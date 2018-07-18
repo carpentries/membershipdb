@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'contact_list' %}">Contact</a></li>
+  <li class="breadcrumb-item">{{ contact.name }} {{ contact.last_name }}</li>
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+      <div class="col-6">Name: {{ contact.name }}</div>
+      <div class="col-6">Lastname: {{ contact.last_name }}</div>
+  </div>
+  <div class="row">
+      <div class="col-6">Organization: {{ contact.organization }}</div>
+      <div class="col-6">Title: {{ contact.title }}</div>
+  </div>
+  <div class="row">
+    <div class="col-6">Email: {{ contact.email }}</div>
+    <div class="col-6">Hubspot: {{ contact.hubspot }}</div>
+  </div>
+  <div class="row">
+    <div class="col-6">Address: {{ contact.address }}</div>
+    <div class="col-6">Phone: {{ contact.phone }}</div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-3">
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="contactCouncil" {% if contact.advisory_council %}checked="checked"{% endif %}> 
+    </div>
+    <label class="col-sm-2 col-form-label">Council representative?</label>
+    </div>
+    <div class="col-3">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="contactSignatory" {% if contact.signatory %}checked="checked"{% endif %}> 
+      </div>
+      <label class="col-sm-2 col-form-label">Is signatory?</label>
+      </div>
+      <div class="col-3">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="contactPrimary" {% if contact.member_contact %}checked="checked"{% endif %}> 
+      </div>
+      <label class="col-sm-2 col-form-label">Primary contact?</label>
+      </div>
+      <div class="col-3">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="contactLetter" {% if contact.nf2nci_letter %}checked="checked"{% endif %}> 
+      </div>
+      <label class="col-sm-2 col-form-label">Respond assignment letter?</label>
+      </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-4">
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="contactBilling" {% if contact.billing_contact %}checked="checked"{% endif %}> 
+    </div>
+    <label class="col-sm-2 col-form-label">Billing contact?</label>
+    </div>
+    <div class="col-4">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="contactTrainer" {% if contact.trainer %}checked="checked"{% endif %}> 
+      </div>
+      <label class="col-sm-2 col-form-label">Is trainer?</label>
+      </div>
+      <div class="col-4">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="contactMerger" {% if contact.merger_notify %}checked="checked"{% endif %}> 
+      </div>
+      <label class="col-sm-2 col-form-label">Notified of merger?</label>
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-12">Notes: {{ contact.notes.content_type.contact }}</div>
+    </div>
+
+</div>
+
+{% endblock %}

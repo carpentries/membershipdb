@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'membership_list' %}">Membership</a></li>
+  <li class="breadcrumb-item">{{ membership.organization }}</li>
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+      <div class="col-6">Organization: {{ membership.organization }}</div>
+      <div class="col-6">Type of membership: {{ membership.member_type }}</div>
+  </div>
+  <div class="row">
+      <div class="col-6">Status: {{ membership.status }}</div>
+      <div class="col-6">New or renew?: {{ membership.new_renew }}</div>
+  </div>
+  <div class="row">
+    <div class="col-6">Hubspot link: {{ membership.hubspot }}</div>
+    <div class="col-6">Annual fee: {{ membership.annual_fee }}</div>
+  </div>
+  <div class="row">
+    <div class="col-6">Starting date: {{ membership.start_date }}</div>
+    <div class="col-6">Expiring date: {{ membership.expires }}</div>
+  </div>
+  <div class="row">
+    <div class="col-6">Agreement Github link: {{ membership.agreement }}</div>
+    <div class="col-6">Invoice request: {{ membership.invoice_request }}</div>
+  </div>
+  <div class="row">
+    <div class="col-6">Event: {{ membership.event }}</div>
+    <div class="col-6">Event status request: {{ membership.event_status }}</div>
+  </div>
+
+  <br>
+  <div class="row">
+    <div class="col-12">
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="membershipPaid" {% if membership.paid_in_full %}checked="checked"{% endif %}> 
+    </div>
+    <label class="col-sm-2 col-form-label">Paid in full?</label>
+    </div>
+      </div>
+  </div>
+  <br>
+
+  <div class="row">
+      <div class="col-12">Notes: {{ membership.notes.content_type.membership }}</div>
+    </div>
+
+</div>
+
+{% endblock %}

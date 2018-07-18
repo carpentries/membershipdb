@@ -1,19 +1,16 @@
 {% extends 'base.html' %}
-
 {% load static %}
-<html>
 
 {% block title %}Organizations{% endblock %}
 
 {% block breadcrumb %}
-
-  <ol class="breadcrumb my-1">
-    <h1 class="breadcrumb-item active">Organizations</h1>
-  </ol>
-  {% endblock %}
+<ol class="breadcrumb my-1">
+  <h1 class="breadcrumb-item active">Organizations</h1>
+</ol>
+{% endblock %}
 
 {% block content %}
-  <body>
+<div class="container">
     <table class="table">
       <thead class="thead-dark">
         <tr>
@@ -27,18 +24,18 @@
         {% for organization in organizations %}
           <tr>
             <td>
-              {{ organization.name }}
+              <a href="{% url 'organization_id' organization.id %}">{{ organization.name }}</a>
             </td>
-            <td><small class="text-muted d-block">{{ organization.country.name }}</small></td>
-            <td style="text-align:center;"><div class="form-check">
+            <td><a class="text-muted d-block">{{ organization.country.name }}</a></td>
+            <td style="text-align:center;">
+              <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="organizationUmbrella" {% if organization.umbrella %}checked="checked"{% endif %}> 
-            </div></td>
+              </div>
+            </td>
           </tr>
         {% endfor %}
         </p>
       </tbody>
     </table>
-  </body>
-</html>
-
+  </div>
 {% endblock %}

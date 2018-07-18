@@ -16,8 +16,13 @@ def contact_list(request):
     contacts = Contact.objects.all()
     return render(request, 'contact_list.html', {'contacts': contacts})    
 
+
+
 def term_list(request):
+    d_term_type = dict(Term.TYPE_CHOICES)
     terms = Term.objects.all()
+    for term in terms:
+        term.mem_type = d_term_type[term.mem_type]
     return render(request, 'term_list.html', {'terms': terms})  
 
 def note_list(request):
