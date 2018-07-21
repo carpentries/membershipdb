@@ -1,4 +1,4 @@
-#from django.conf.urls import include, url
+from django.conf.urls import include, url
 from django.urls import path
 from django.contrib import admin
 
@@ -10,6 +10,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', membership_views.home, name='home'),
     path('signup/', accounts_views.signup, name='signup'),
+    path('accounts/', include('django.contrib.auth.urls')),
 
     path('organizations/', membership_views.organization_list, name='organization_list'),
     path('memberships/', membership_views.membership_list, name='membership_list'),
