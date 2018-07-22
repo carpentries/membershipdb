@@ -61,6 +61,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+LOGIN_REDIRECT_URL = 'home'
+
 ROOT_URLCONF = 'membershipdb.urls'
 
 TEMPLATES = [
