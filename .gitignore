@@ -17,5 +17,5 @@ accounts/migrations/__pycache__/
 # Internal
 tmp/
 membershipdb/gunicorn_conf
-static/
+/static/
 
