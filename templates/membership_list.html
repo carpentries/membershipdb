@@ -27,7 +27,7 @@
         {% for membership in memberships %}
           <tr>
             <td>
-              <a href="{% url 'membership_id' membership.id %}">{{ membership.organization }}</a>
+              <a href="{% url 'membership_id' membership.id %}">{{ membership.organization.name }}</a>
             </td>
             <td><small class="text-muted d-block">{{ membership.member_type }}</small></td> 
             <td><small class="text-muted d-block">{{ membership.status }}</small></td> 
