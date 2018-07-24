@@ -25,7 +25,7 @@
     <label for="status-input">Status</label>
     <div class="col-10">
     <select class="form-control" id="status-input">
-        {% for status_type in status_types.values() %}
+        {% for status_type in status_types.values %}
         <option>{{ status_type }}</option>
         {% endfor %}
     </select>

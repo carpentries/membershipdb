@@ -58,17 +58,21 @@ def note_id(request, id):
     return render(request, 'note_id.html', {'note': note})
 
 def organization_edit(request, id):
-    organizations = Organization.objects.all()
+    organizations = Organization.objects.get(id=id)
     return render(request, 'organization_edit.html', {'organizations': organizations})
 
 def membership_edit(request, id):
     d_status_type = dict(Membership.STATUS_CHOICES)
-    memberships = Membership.objects.all()
+    memberships = Membership.objects.get(id=id)
     return render(request, 'membership_edit.html', {'memberships': memberships, 'status_type': d_status_type})
 
 def contact_edit(request, id):
-    contacts = Contact.objects.all()
+    contacts = Contact.objects.get(id=id)
     return render(request, 'contact_edit.html', {'contacts': contacts})
+
+def term_edit(request, id):
+    terms = Term.objects.get(id=id)
+    return render(request, 'term_edit.html', {'terms': terms})
 
 def organization_form(request, id):
     organization = get_object_or_404(Organization, id=id)

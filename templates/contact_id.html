@@ -1,15 +1,20 @@
-{% extends 'base.html' %}
+{% extends 'base_banner.html' %}
 
 {% block breadcrumb %}
-  <li class="breadcrumb-item"><a href="{% url 'contact_list' %}">Contact</a></li>
-  <li class="breadcrumb-item">{{ contact.name }} {{ contact.last_name }}</li>
+    <h1 class="display-6">Contacts</h1>
+
+  <div>
+      <li class="breadcrumb-item"><a href="{% url 'contact_list' %}">Contact</a></li>
+      <li class="breadcrumb-item">{{ contact.name }} {{ contact.last_name }}</li>
+  </div>
+  
 
 {% endblock %}
 
 {% block content %}
 <div class="container">
     <div class="row float-right">
-        <div class="btn btn-outline-primary" href="#">Edit</div>
+        <div class="btn btn-outline-primary" onclick="location.href='{% url 'contact_edit' %}'">Edit</div>
         <div class="btn btn-outline-primary" href="#">Delete</div>
     </div>
     <br>

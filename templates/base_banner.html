@@ -6,16 +6,17 @@
     <h5 class="my-0 mr-md-auto font-weight-normal text-light">
       <!-- <a class="text-light" href="{% url 'home' %}">The Carpentries Memberships</a> -->
       <a href="{% url 'home' %}">
-        <span class="fas fa-home"></span>
+        <span class="fas fa-home"> </span>
+        <a class="text-light">The Carpentries Memberships</a>
       </a>
     </h5>
     <nav class="my-2 my-md-0 mr-md-4">
-        <a class="p-2 text-light" href="#">Memberships</a>
-        <a class="p-2 text-light" href="#">Organizations</a>
-        <a class="p-2 text-light" href="#">Contacts</a>
-        <a class="p-2 text-light" href="#">Terms</a>
-        <a class="p-2 text-light" href="#">Notes</a>
+        <a class="p-2 text-light" href="{% url 'membership_list' %}">Memberships</a>
+        <a class="p-2 text-light" href="{% url 'organization_list' %}">Organizations</a>
+        <a class="p-2 text-light" href="{% url 'contact_list' %}">Contacts</a>
+        <a class="p-2 text-light" href="{% url 'term_list' %}">Terms</a>
+        <a class="p-2 text-light" href="{% url 'note_list' %}">Notes</a>
     </nav>
-    <a class="btn btn-outline-primary" href="#">Sign up</a>
+    <a class="btn btn-outline-primary" href="{% url 'logout' %}">Sign out</a>
   </div>
 {% endblock %}
