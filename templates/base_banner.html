@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block top %}
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-dark border-bottom box-shadow">
+    <h5 class="my-0 mr-md-auto font-weight-normal text-light">
+      <!-- <a class="text-light" href="{% url 'home' %}">The Carpentries Memberships</a> -->
+      <a href="{% url 'home' %}">
+        <span class="fas fa-home"></span>
+      </a>
+    </h5>
+    <nav class="my-2 my-md-0 mr-md-4">
+        <a class="p-2 text-light" href="#">Memberships</a>
+        <a class="p-2 text-light" href="#">Organizations</a>
+        <a class="p-2 text-light" href="#">Contacts</a>
+        <a class="p-2 text-light" href="#">Terms</a>
+        <a class="p-2 text-light" href="#">Notes</a>
+    </nav>
+    <a class="btn btn-outline-primary" href="#">Sign up</a>
+  </div>
+{% endblock %}
