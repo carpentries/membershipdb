@@ -14,7 +14,7 @@
 {% block content %}
 <div class="container">
     <div class="row float-right">
-        <div class="btn btn-outline-primary" onclick="location.href='{% url 'contact_edit' %}'">Edit</div>
+        <div class="btn btn-outline-primary" onclick="location.href='{% url 'contact_edit' contact.id %}'">Edit</div>
         <div class="btn btn-outline-primary" href="#">Delete</div>
     </div>
     <br>
