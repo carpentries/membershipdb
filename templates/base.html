@@ -14,22 +14,14 @@
 
   <body>
 
-      <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-dark border-bottom box-shadow">
-      <h5 class="my-0 mr-md-auto font-weight-normal text-light">
-        <a class="text-light" href="{% url 'home' %}">The Carpentries Memberships</a>
-      </h5>
-      <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 text-light" href="#">Features</a>
-      </nav>
-      <a class="btn btn-outline-primary" href="#">Sign up</a>
-    </div>
-
+    {% block top %}
+    {% endblock %}
     <div class="jumbotron text-center">
         <h1>MembershipDB</h1>
-        <p>Information about the page.</p>
     </div>
-
-
+    <div class="text-center">
+        <img src="~/carpentries-mdb-hex-white.png" >
+    </div>
 
     <div class="container">
       <ol class="breadcrumb my-4">
@@ -39,45 +31,51 @@
       {% block content %}
       {% endblock %}
     </div>
-    <hr class="footer-hr" />
     <div class="container">
-    <footer class="pt-4 my-md-5 pt-md-5 border-top">
-        <div class="row">
-          <div class="col-12 col-md">
-            <img class="mb-2" src="../../assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
-            <small class="d-block mb-3 text-muted">© 2017-2018</small>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Features</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Cool stuff</a></li>
-              <li><a class="text-muted" href="#">Random feature</a></li>
-              <li><a class="text-muted" href="#">Team feature</a></li>
-              <li><a class="text-muted" href="#">Stuff for developers</a></li>
-              <li><a class="text-muted" href="#">Another one</a></li>
-              <li><a class="text-muted" href="#">Last time</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Resources</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Resource</a></li>
-              <li><a class="text-muted" href="#">Resource name</a></li>
-              <li><a class="text-muted" href="#">Another resource</a></li>
-              <li><a class="text-muted" href="#">Final resource</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>About</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Team</a></li>
-              <li><a class="text-muted" href="#">Locations</a></li>
-              <li><a class="text-muted" href="#">Privacy</a></li>
-              <li><a class="text-muted" href="#">Terms</a></li>
-            </ul>
-          </div>
-        </div>
-      </footer>
+        <footer id="footer-content" class="bg-grau">
+            <div id="footer">
+                <div class="row">
+                    <div class="medium-6 large-5 columns">
+                        <h5 class="shadow-black">About The Carpentries</h5>
+                        <p class="shadow-black"> The Carpentries is a fiscally sponsored project of
+                            <a href='http://communityin.org/'>Community Initiatives</a>, a registered 501(c)3 non-profit organisation based in California,
+                            USA. We are a global community teaching foundational computational and data science skills to
+                            researchers in academia, industry and government.
+                            <a href="https://carpentries.org/about/">More ›</a>
+                    </div>
+                    <div class="small-6 medium-3 large-3 large-offset-1 columns">
+                        <h5 class="shadow-black">Services</h5>
+                        <ul class="no-bullet shadow-black">
+                            <li>
+                                <a href="https://carpentries.org/contact/" title="Contact">Contact</a>
+                                <li>
+                                    <a href="https://carpentries.org/feed.xml" title="Subscribe to RSS Feed">RSS</a>
+                                    <li>
+                                        <a href="https://carpentries.org/atom.xml" title="Subscribe to Atom Feed">Atom</a>
+                                        <li>
+                                            <a href="https://carpentries.org/sitemap.xml" title="Sitemap for Google Webmaster Tools">sitemap.xml</a>
+                        </ul>
+                    </div>
+                    <div class="small-6 medium-3 large-3 columns">
+                        <h5 class="shadow-black">Links</h5>
+                        <ul class="no-bullet shadow-black">
+                            <li>
+                                <a href="https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html" target="_blank"
+                                    title="Code of Conduct">Our Code of Conduct</a>
+                                <li>
+                                    <a href="https://docs.carpentries.org/topic_folders/policies/privacy.html" target="_blank"
+                                        title="Privacy Policy">Our Privacy Policy</a>
+                                    <li>
+                                        <a href="https://software-carpentry.org/" target="_blank" title="Software Carpentry">Software Carpentry website</a>
+                                        <li>
+                                            <a href="http://www.datacarpentry.org/" target="_blank" title="Data Carpentry">Data Carpentry website</a>
+                                            <li>
+                                                <a href="https://info.carpentries.org/" target="_blank" title="FAQs">Frequently Asked Questions</a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
   </body>
 </html>
