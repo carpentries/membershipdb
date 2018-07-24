@@ -2,7 +2,11 @@ from django.shortcuts import render, get_object_or_404
 from .models import Organization, Membership, Contact, Term, Note
 
 def home(request):
-    return render(request, 'home.html')
+    if request.user.is_authenticated:
+        return render(request, 'home.html')
+    else:
+        return render(request, 'landing.html')
+
 
 def organization_list(request):
     organizations = Organization.objects.all()
