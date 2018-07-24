@@ -1,7 +1,19 @@
-{% extends "back_base.html" %}
+{% extends "base.html" %}
+
+
+{% block breadcrumb %}
+  <ol class="breadcrumb my-1">
+    <h1 class="breadcrumb-item active">Logged out</h1>
+  </ol>
+{% endblock %}
 
 {% block content %}
-<p>Logged out!</p>  
+<div class="text-center"> 
+    <p>Click below to login again.</p>
+    <a class="btn btn-outline-primary" href="{% url 'login' %}">Sign in</a>
+    <br>
+    
+</div> 
 
-<a href="{% url 'login'%}">Click here to login again.</a>
+
 {% endblock %}

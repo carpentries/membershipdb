@@ -1,4 +1,10 @@
-{% extends "back_base.html" %}
+{% extends "base.html" %}
+
+{% block breadcrumb %}
+  <ol class="breadcrumb my-1">
+    <h1 class="breadcrumb-item active">Login</h1>
+  </ol>
+{% endblock %}
 
 {% block content %}
 
@@ -15,25 +21,33 @@
     {% endif %}
 {% endif %}
 
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
+    <div class="card mb-3 box-shadow text-center">
+      
+        <div class="card-body">
+            <h1 class="card-title pricing-card-title"></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+            <li>
+                <form method="post" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    
+                    <div>
+                      <td>{{ form.username.label_tag }}</td>
+                      <td>{{ form.username }}</td>
+                    </div>
+                    <div>
+                      <td>{{ form.password.label_tag }}</td>
+                      <td>{{ form.password }}</td>
+                    </div>
+                    
+                    <div>
+                      <input type="submit" value="login" />
+                      <input type="hidden" name="next" value="{{ next }}" />
+                    </div>
+                    </form>
 
-<div>
-  <td>{{ form.username.label_tag }}</td>
-  <td>{{ form.username }}</td>
-</div>
-<div>
-  <td>{{ form.password.label_tag }}</td>
-  <td>{{ form.password }}</td>
-</div>
-
-<div>
-  <input type="submit" value="login" />
-  <input type="hidden" name="next" value="{{ next }}" />
-</div>
-</form>
-
-{# Assumes you setup the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+            </li>
+            </ul>
+        </div>
+    </div>
 
 {% endblock %}
