@@ -32,7 +32,7 @@ else:
 SECRET_KEY = os.environ.get('MDB_SECRET_KEY', SECRET_KEY)
 
 #ALLOWED_HOSTS = ["memberdb.carpentries.org"]
-ALLOWED_HOSTS = ["127.0.0.1"] #Must be changed for the url site
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"] #Must be changed for the url site
 
 # Application definition
 
@@ -131,8 +131,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'), ] #Must be changed for STATIC_ROOT
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'node_modules') ] #Must be changed for STATIC_ROOT
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
