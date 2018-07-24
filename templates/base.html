@@ -4,7 +4,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <title>{% block title %}MembershipDB{% endblock %}</title>
-  
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
       <!-- Bootstrap core CSS -->
       <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
   
@@ -31,11 +31,12 @@
       {% block content %}
       {% endblock %}
     </div>
+    <br>
     <div class="container">
-        <footer id="footer-content" class="bg-grau">
+        <footer id="footer-content">
             <div id="footer">
                 <div class="row">
-                    <div class="medium-6 large-5 columns">
+                    <div class="col-6">
                         <h5 class="shadow-black">About The Carpentries</h5>
                         <p class="shadow-black"> The Carpentries is a fiscally sponsored project of
                             <a href='http://communityin.org/'>Community Initiatives</a>, a registered 501(c)3 non-profit organisation based in California,
@@ -43,7 +44,7 @@
                             researchers in academia, industry and government.
                             <a href="https://carpentries.org/about/">More ›</a>
                     </div>
-                    <div class="small-6 medium-3 large-3 large-offset-1 columns">
+                    <div class="col-3">
                         <h5 class="shadow-black">Services</h5>
                         <ul class="no-bullet shadow-black">
                             <li>
@@ -56,7 +57,7 @@
                                             <a href="https://carpentries.org/sitemap.xml" title="Sitemap for Google Webmaster Tools">sitemap.xml</a>
                         </ul>
                     </div>
-                    <div class="small-6 medium-3 large-3 columns">
+                    <div class="col-3">
                         <h5 class="shadow-black">Links</h5>
                         <ul class="no-bullet shadow-black">
                             <li>
