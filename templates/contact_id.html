@@ -1,13 +1,18 @@
 {% extends 'base_banner.html' %}
 
-{% block breadcrumb %}
-    <h1 class="display-6">Contacts</h1>
+{% block panel %}
+    <h1>Contacts</h1>
+    <br>
+{% endblock %}
 
-  <div>
+{% block breadcrumb %}
+  
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{% url 'contact_list' %}">Contact</a></li>
       <li class="breadcrumb-item">{{ contact.name }} {{ contact.last_name }}</li>
-  </div>
-  
+    </ol>
+  </nav>
 
 {% endblock %}
 

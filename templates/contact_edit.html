@@ -4,8 +4,12 @@
 {% block title %}Contact Editing{% endblock %}
 
 {% block breadcrumb %}
-  <li class="breadcrumb-item">Contact</li>
-  <li class="breadcrumb-item">{{ contact.name }} {{ contact.last_name }}</li>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">Contact</li>
+        <li class="breadcrumb-item">{{ contact.name }} {{ contact.last_name }}</li>
+    </ol>
+  </nav>
 {% endblock %}
 
 {% block content %}
