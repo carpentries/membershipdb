@@ -1,12 +1,21 @@
-{% extends 'base.html' %}
+{% extends 'base_banner.html' %}
 {% load static %}
 
 {% block title %}Membership Editing{% endblock %}
 
-{% block breadcrumb %}
-  <li class="breadcrumb-item">Membership</li>
-  <li class="breadcrumb-item">{{ membership.organization }}</li>
+{% block panel %}
+    <h1>Memberships</h1>
+    <br>
 {% endblock %}
+
+{% block breadcrumb %}  
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'membership_list' %}">Membership</a></li>
+      <li class="breadcrumb-item">{{ membership.organization }}</li>
+    </ol>
+  </nav>
+  {% endblock %}
 
 {% block content %}
 <div class="form-group row">
@@ -22,14 +31,48 @@
   </div>
 </div>
 <div class="form-group row">
-    <label for="status-input">Status</label>
+    <label for="status-input" class="col-2 col-form-label">Status</label>
     <div class="col-10">
-    <select class="form-control" id="status-input">
-        {% for status_type in status_types.values %}
-        <option>{{ status_type }}</option>
+    <select class="form-control" id="status-input" value="{{ membership.status }}">
+        {% for s_type in status_type.values %}
+        <option>{{ s_type }}</option>
         {% endfor %}
     </select>
     </div>
+</div>
+<div class="form-group row">
+  <label for="renew-input" class="col-2 col-form-label">New or renew?</label>
+  <div class="col-10">
+  <select class="form-control" id="renew-input" value="{{ membership.new_renew }}">
+      {% for n_renew in new_renew.values %}
+      <option>{{ n_renew }}</option>
+      {% endfor %}
+  </select>
+  </div>
+</div>
+<div class="form-group row">
+  <label for="hubspot-input" class="col-2 col-form-label">Hubspot link:</label>
+  <div class="col-10">
+    <input class="form-control" type="text" value="{{ membership.hubspot }}" id="hubspot-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="annual-fee-input" class="col-2 col-form-label">Annual fee:</label>
+  <div class="col-10">
+    <input class="form-control" type="text" value="{{ membership.annual_fee }}" id="annual-fee-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="start-date-input" class="col-2 col-form-label">Starting date</label>
+  <div class="col-10">
+    <input class="form-control" type="date" value="{{ membership.start_date }}" id="start-date-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="expires-input" class="col-2 col-form-label">Expiring date</label>
+  <div class="col-10">
+    <input class="form-control" type="date" value="{{ membership.expires }}" id="expires-input">
+  </div>
 </div>
 
 <div class="form-group row">
