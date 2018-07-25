@@ -58,21 +58,22 @@ def note_id(request, id):
     return render(request, 'note_id.html', {'note': note})
 
 def organization_edit(request, id):
-    organizations = Organization.objects.get(id=id)
-    return render(request, 'organization_edit.html', {'organizations': organizations})
+    organization = Organization.objects.get(id=id)
+    return render(request, 'organization_edit.html', {'organization': organization})
 
 def membership_edit(request, id):
     d_status_type = dict(Membership.STATUS_CHOICES)
-    memberships = Membership.objects.get(id=id)
-    return render(request, 'membership_edit.html', {'memberships': memberships, 'status_type': d_status_type})
+    d_new_renew = dict(Membership.NEW_RENEW_CHOICES)
+    membership = Membership.objects.get(id=id)
+    return render(request, 'membership_edit.html', {'membership': membership, 'status_type': d_status_type, 'new_renew': d_new_renew})
 
 def contact_edit(request, id):
-    contacts = Contact.objects.get(id=id)
-    return render(request, 'contact_edit.html', {'contacts': contacts})
+    contact = Contact.objects.get(id=id)
+    return render(request, 'contact_edit.html', {'contact': contact})
 
 def term_edit(request, id):
-    terms = Term.objects.get(id=id)
-    return render(request, 'term_edit.html', {'terms': terms})
+    term = Term.objects.get(id=id)
+    return render(request, 'term_edit.html', {'term': term})
 
 def organization_form(request, id):
     organization = get_object_or_404(Organization, id=id)
