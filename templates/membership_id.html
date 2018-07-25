@@ -1,10 +1,17 @@
 {% extends 'base_banner.html' %}
 
-{% block breadcrumb %}
+{% block panel %}
+    <h1>Memberships</h1>
+    <br>
+{% endblock %}
 
-  <li class="breadcrumb-item"><a href="{% url 'membership_list' %}">Membership</a></li>
-  <li class="breadcrumb-item">{{ membership.organization }}</li>
-
+{% block breadcrumb %}  
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'membership_list' %}">Membership</a></li>
+      <li class="breadcrumb-item">{{ membership.organization }}</li>
+    </ol>
+  </nav>
 {% endblock %}
 
 {% block content %}
