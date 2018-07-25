@@ -1,9 +1,17 @@
 {% extends 'base_banner.html' %}
 
-{% block breadcrumb %}
-  <li class="breadcrumb-item"><a href="{% url 'term_list' %}">Term</a></li>
-  <li class="breadcrumb-item">{{ term.mem_type }}</li>
+{% block panel %}
+    <h1>Terms</h1>
+    <br>
+{% endblock %}
 
+{% block breadcrumb %}  
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'term_list' %}">Term</a></li>
+      <li class="breadcrumb-item">{{ term.mem_type }}</li>
+    </ol>
+  </nav>
 {% endblock %}
 
 {% block content %}
