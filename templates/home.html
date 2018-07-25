@@ -1,12 +1,11 @@
 {% extends 'base_banner.html' %}
 {% load static %}
 
-
-{% block breadcrumb %}
-  <ol class="breadcrumb my-1">
-    <h1 class="breadcrumb-item active">Home</h1>
-  </ol>
+{% block panel %}
+    <h1>Home</h1>
+    <br>
 {% endblock %}
+
 
 {% block content %}
 
@@ -39,7 +38,9 @@
                             <ul class="list-unstyled mt-3 mb-4">
                             <li></li>
                             </ul>
-                            <button type="button" class="btn btn-outline-primary" onclick="location.href='{% url 'membership_list' %}'">Go
+                            <button type="button" class="btn btn-outline-primary" onclick="location.href='{% url 'membership_list' %}'">List
+                            </button><br><br>
+                            <button type="button" class="btn btn-outline-primary" onclick="location.href='#'">New        
                             </button>
                         </div>
                     </div>
@@ -54,7 +55,10 @@
                             <ul class="list-unstyled mt-3 mb-4">
                             <li></li>
                             </ul>
-                            <button type="button" class="btn btn-outline-primary" onclick="location.href='{% url 'contact_list' %}'">Go</button>
+                            <button type="button" class="btn btn-outline-primary" onclick="location.href='{% url 'contact_list' %}'">List</button>
+                            <br><br>
+                            <button type="button" class="btn btn-outline-primary" onclick="location.href='#'">New        
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -70,7 +74,10 @@
                             <ul class="list-unstyled mt-3 mb-4">
                             <li></li>
                             </ul>
-                            <button type="button" class="btn btn-outline-primary" onclick="location.href='{% url 'term_list' %}'">Go</button>
+                            <button type="button" class="btn btn-outline-primary" onclick="location.href='{% url 'term_list' %}'">List</button>
+                            <br><br>
+                            <button type="button" class="btn btn-outline-primary" onclick="location.href='#'">New        
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -84,7 +91,10 @@
                             <ul class="list-unstyled mt-3 mb-4">
                             <li></li>
                             </ul>
-                            <button type="button" class="btn btn-outline-primary" onclick="location.href='{% url 'note_list' %}'">Go</button>
+                            <button type="button" class="btn btn-outline-primary" onclick="location.href='{% url 'note_list' %}'">List</button>
+                            <br><br>
+                            <button type="button" class="btn btn-outline-primary" onclick="location.href='#'">New        
+                            </button>
                         </div>
                     </div>
                 </div>
