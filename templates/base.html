@@ -4,27 +4,37 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <title>{% block title %}MembershipDB{% endblock %}</title>
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+      
       <!-- Bootstrap core CSS -->
       <link href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
   
       <!-- Custom styles for this template -->
       <link href="membership.css" rel="stylesheet">
+      <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   </head>  
 
   <body>
 
-    {% block top %}
+    {% block banner %}
     {% endblock %}
 
     <div class="container">
-      <ol class="breadcrumb my-4"> 
-        <div>
-            <img src="/static/carpentries-mdb-hex-white.png" height="100px">
+      <div class="jumbotron panel panel-default"> 
+        <div class="row">
+            <div class="col-2">
+            <img src="/static/carpentries-mdb-hex-white.png" height="150px">
+            </div>
+            <div class="col-10">
+            {% block panel %}
+            {% endblock %}
+            </div>
         </div>
+    </div>
+    
         {% block breadcrumb %}
         {% endblock %}
-      </ol> 
+
+    </div> 
       {% block content %}
       {% endblock %}
     </div>
