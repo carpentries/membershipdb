@@ -26,7 +26,7 @@ def membership_list(request):
     memberships_list = Membership.objects.all()
     page = request.GET.get('page', 1)
 
-    paginator = Paginator(memberships_list, 2)
+    paginator = Paginator(memberships_list, 10)
     try:
         memberships = paginator.page(page)
     except PageNotAnInteger:
@@ -37,7 +37,17 @@ def membership_list(request):
     return render(request, 'membership_list.html', {'memberships': memberships},)
     
 def contact_list(request):
-    contacts = Contact.objects.all()
+    contacts_list = Contact.objects.all()
+    page = request.GET.get('page', 1)
+
+    paginator = Paginator(contacts_list, 10)
+    try:
+        contacts = paginator.page(page)
+    except PageNotAnInteger:
+        contacts = paginator.page(1)
+    except EmptyPage:
+        contacts = paginator.page(paginator.num_pages)
+
     return render(request, 'contact_list.html', {'contacts': contacts})    
 
 def term_list(request):
