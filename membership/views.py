@@ -65,11 +65,21 @@ def term_list(request):
         terms = paginator.page(1)
     except EmptyPage:
         terms = paginator.page(paginator.num_pages)
-        
+
     return render(request, 'term_list.html', {'terms': terms})  
 
 def note_list(request):
-    notes = Note.objects.all()
+    notes_list = Note.objects.all()
+    page = request.GET.get('page',1)
+
+    paginator = Paginator(notes_list, 10)
+    try:
+        notes = paginator.page(page)
+    except PageNotAnInteger:
+        notes = paginator.page(1)
+    except EmptyPage:
+        notes = paginator.page(paginator.num_pages)
+
     return render(request, 'note_list.html', {'notes': notes}) 
 
 def organization_id(request, id):
