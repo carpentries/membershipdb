@@ -52,9 +52,20 @@ def contact_list(request):
 
 def term_list(request):
     d_term_type = dict(Term.TYPE_CHOICES)
-    terms = Term.objects.all()
-    for term in terms:
+    terms_list = Term.objects.all()
+    for term in terms_list:
         term.mem_type = d_term_type[term.mem_type]
+
+    page = request.GET.get('page', 1)
+
+    paginator = Paginator(terms_list, 10)
+    try:
+        terms = paginator.page(page)
+    except PageNotAnInteger:
+        terms = paginator.page(1)
+    except EmptyPage:
+        terms = paginator.page(paginator.num_pages)
+        
     return render(request, 'term_list.html', {'terms': terms})  
 
 def note_list(request):
