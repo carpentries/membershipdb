@@ -4,7 +4,13 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def home(request):
     if request.user.is_authenticated:
-        return render(request, 'home.html')
+        organizations = Organization.objects.all().count
+        memberships = Membership.objects.all().count
+        terms = Term.objects.all().count
+        contacts = Contact.objects.all().count
+        notes = Note.objects.all().count
+        
+        return render(request, 'home.html', {'organizations':organizations, 'memberships':memberships, 'terms':terms, 'contacts':contacts, 'notes':notes})
     else:
         return render(request, 'landing.html')
 
