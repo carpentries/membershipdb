@@ -27,6 +27,6 @@ urlpatterns = [
     #path(r'^organization/(?P<id>\d+)/organization_form/$', membership_views.organization_form, name='organization_form'),
     #path(r'^organization_edit/(?P<id>\d+)/$', membership_views.organization_edit, name='organization_edit'),
     path('membership_edit/<int:id>/', membership_views.membership_edit, name='membership_edit'),
-    path('contact_edit/(?P<id>\d+)/', membership_views.contact_edit, name='contact_edit'),
+    path('contact_edit/<int:id>/', membership_views.contact_edit, name='contact_edit'),
 ]
 
