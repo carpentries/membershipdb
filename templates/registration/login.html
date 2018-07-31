@@ -1,9 +1,8 @@
 {% extends "base.html" %}
 
-{% block breadcrumb %}
-  <ol class="breadcrumb my-1">
-    <h1 class="breadcrumb-item active">Login</h1>
-  </ol>
+{% block panel %}
+    <h1>Login</h1>
+    <br>
 {% endblock %}
 
 {% block content %}
@@ -40,7 +39,7 @@
                     </div>
                     
                     <div>
-                      <input type="submit" value="login" />
+                      <input type="submit" value="Login" />
                       <input type="hidden" name="next" value="{{ next }}" />
                     </div>
                     </form>
