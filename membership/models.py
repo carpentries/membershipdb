@@ -1,12 +1,16 @@
+"""Membership models
+"""
 from datetime import datetime
 
-from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
+from django.contrib.contenttypes.fields import GenericForeignKey,\
+                                               GenericRelation
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
 
 from djmoney.models.fields import MoneyField
 from django_countries.fields import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
+
 
 class Note(models.Model):
     """
@@ -32,6 +36,9 @@ class Note(models.Model):
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
 
+    def __str__(self):
+        return self.title
+
 
 class Term(models.Model):
     """
@@ -49,15 +56,15 @@ class Term(models.Model):
     STANDARD_BRONZE = 'SB'
 
     TYPE_CHOICES = (
-        (STANDARD_SILVER,'Standard Silver'),
-        (CORPORATE_SILVER,'Corporate Silver'),
-        (STANDARD_GOLD,'Standard Gold'),
-        (STANDARD_PLATINUM,'Standard Platinum'),
-        (COORDINATE_PLATINUM,'Coordinate Platinum'),
+        (STANDARD_SILVER, 'Standard Silver'),
+        (CORPORATE_SILVER, 'Corporate Silver'),
+        (STANDARD_GOLD, 'Standard Gold'),
+        (STANDARD_PLATINUM, 'Standard Platinum'),
+        (COORDINATE_PLATINUM, 'Coordinate Platinum'),
         (INSTRUCTOR_TRAINING, 'Instructor Training'),
-        (SWC_CONTRACT,'SWC Contract'),
-        (DC_CONTRACT,'DC Contract'),
-        (CONTRACT,'Contract'),
+        (SWC_CONTRACT, 'SWC Contract'),
+        (DC_CONTRACT, 'DC Contract'),
+        (CONTRACT, 'Contract'),
         (STANDARD_BRONZE, 'Standard Bronze')
     )
 
@@ -101,12 +108,14 @@ class Term(models.Model):
         )
     coordinate = models.BooleanField(
         'Offered coordinator?',
-        help_text='Do they have a workshop coordinator offered up as in-kind effort?'
+        help_text='Do they have a workshop coordinator offered up\
+                   as in-kind effort?'
         )
     notes = GenericRelation(Note)
 
     def __str__(self):
         return dict(self.TYPE_CHOICES)[self.mem_type]
+
 
 class Organization(models.Model):
     """
@@ -135,7 +144,8 @@ class Organization(models.Model):
         )
     umbrella = models.BooleanField(
         'Is umbrella?',
-        help_text='Does this membership cover other organizations under its “umbrella”?'
+        help_text='Does this membership cover other organizations under\
+                   its “umbrella”?'
         )
     members = models.ForeignKey(
         'self',
@@ -199,8 +209,8 @@ class Contact(models.Model):
         'Billing contact?',
         help_text='Should be the primary billing contact?'
         )
-    trainer = models.BooleanField( # Could be a lookup to AMY DB
-        'Is trainer?', 
+    trainer = models.BooleanField(  # Could be a lookup to AMY DB
+        'Is trainer?',
         help_text='Is this person an instructor trainer?'
         )
     merger_notify = models.BooleanField(
@@ -232,9 +242,27 @@ class Contact(models.Model):
     def __str__(self):
         return "{} {}: {}".format(self.name, self.last_name, self.organization)
 
+
 class Membership(models.Model):
     """
     Organization memberships.
+
+    Pending:
+      In discussion that we really confident will lead to membership
+    Out of signatures:
+      Agreement has been sent out for signatures (membership eminent)
+    Active:
+      Agreement has been signed and term of agreement has started
+    Dormant:
+      Agreement has been signed but term of agreement has not started
+    Expired:
+      Term of agreement has ended
+    Lead:
+      Interest in membership has been expressed, but an agreement may or
+    may not be likely
+    Stale:
+      At one point was pending or lead, but a membership does now not
+    seem likely
     """
     PENDING = 'PD'
     OUT4SIGNATURES = 'OS'
@@ -245,13 +273,13 @@ class Membership(models.Model):
     STALE = 'ST'
 
     STATUS_CHOICES = (
-        (PENDING, 'Pending'), #- In discussion that we really confident will lead to membership
-        (OUT4SIGNATURES, 'Out for Signatures'), #- Agreement has been sent out for signatures (membership eminent)
-        (ACTIVE, 'Active'), #- Agreement has been signed and term of agreement has started
-        (DORMANT, 'Dormant'), #- Agreement has been signed but term of agreement has not started
-        (EXPIRED, 'Expired'), #- Term of agreement has ended
-        (LEAD, 'Lead'), #- Interest in membership has been expressed, but an agreement may or may not be likely
-        (STALE, 'Stale'), #- At one point was pending or lead, but a membership does now not seem likely
+        (PENDING, 'Pending'),
+        (OUT4SIGNATURES, 'Out for Signatures'),
+        (ACTIVE, 'Active'),
+        (DORMANT, 'Dormant'),
+        (EXPIRED, 'Expired'),
+        (LEAD, 'Lead'),
+        (STALE, 'Stale'),
     )
 
     NEW = 'N'
@@ -346,7 +374,7 @@ class Membership(models.Model):
         )
     invoice_request = models.CharField(
         'Invoice request',
-        max_length=2, 
+        max_length=2,
         choices=INVOICE_REQUEST,
         help_text='Status of invoice',
         blank=True, null=True
@@ -367,7 +395,6 @@ class Membership(models.Model):
     notes = GenericRelation(Note)
 
     def __str__(self):
-        return "{} {} {}".format(self.organization, self.member_type, self.status)
-
-
-    
+        return "{} {} {}".format(self.organization,
+                                 self.member_type,
+                                 self.status)
