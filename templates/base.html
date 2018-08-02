@@ -1,44 +1,44 @@
-{% load static %}<!DOCTYPE html>
+{% load static %}
+{% load django_tables2 %}
+
+<!DOCTYPE html>
 <html>
-  <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>{% block title %}MembershipDB{% endblock %}</title>
-      
-      <!-- Bootstrap core CSS -->
-      <link href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
-  
-      <!-- Custom styles for this template -->
-      <link href="membership.css" rel="stylesheet">
-      <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  </head>  
 
-  <body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}MembershipDB{% endblock %}</title>
 
-    {% block banner %}
-    {% endblock %}
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
 
-    <div class="container-fluid">
-      <div class="jumbotron"> 
-        <div class="row">
-            <div class="col-sm-6">
-            <img align="right" src="/static/carpentries-mdb-hex-white.png" height="150px">
-            </div>
-            <div class="col-sm-6">
-                <br>
-                <br>
-            {% block panel %}
-            {% endblock %}
+    <!-- Custom styles for this template -->
+    <link href="membership.css" rel="stylesheet">
+    <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+    {% block banner %} {% endblock %}
+
+    <div class="container">
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-md-2 offset-md-4 text-center">
+                    <img src="/static/carpentries-mdb-hex-white.png" height="140px">
+                </div>
+                <div class="col-md-4 offset-md-0">
+                    <br>
+                    <br> {% block panel %} {% endblock %}
+                </div>
             </div>
         </div>
     </div>
-    
-        {% block breadcrumb %}
-        {% endblock %}
 
-    </div> 
-      {% block content %}
-      {% endblock %}
+        {% block breadcrumb %} {% endblock %}
+
+    <div class="container">
+    {% block content %} {% endblock %}
     </div>
     <br>
     <div class="container">
@@ -70,11 +70,9 @@
                         <h5 class="shadow-black">Links</h5>
                         <ul class="no-bullet shadow-black">
                             <li>
-                                <a href="https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html" target="_blank"
-                                    title="Code of Conduct">Our Code of Conduct</a>
+                                <a href="https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html" target="_blank" title="Code of Conduct">Our Code of Conduct</a>
                                 <li>
-                                    <a href="https://docs.carpentries.org/topic_folders/policies/privacy.html" target="_blank"
-                                        title="Privacy Policy">Our Privacy Policy</a>
+                                    <a href="https://docs.carpentries.org/topic_folders/policies/privacy.html" target="_blank" title="Privacy Policy">Our Privacy Policy</a>
                                     <li>
                                         <a href="https://software-carpentry.org/" target="_blank" title="Software Carpentry">Software Carpentry website</a>
                                         <li>
@@ -87,6 +85,6 @@
             </div>
         </footer>
     </div>
-  </body>
-</html>
+</body>
 
+</html>
