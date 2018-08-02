@@ -5,8 +5,11 @@ from django.shortcuts import render, get_object_or_404
 from django.http import Http404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from .models import Organization, Membership, Contact, Term, Note
-from .forms import TermForm
+from .models import Membership, Organization, Contact, Term, Note,\
+                    to_dict
+from .forms import MembershipForm, OrganizationForm, ContactForm,\
+                   TermForm, NoteForm
+
 
 
 def home(request):
@@ -156,9 +159,17 @@ def note_id(request, nt_id):
 def organization_edit(request, org_id):
     """Organization edit view
     """
-    organization = Organization.objects.get(id=org_id)
-    return render(request, 'organization_edit.html',
-                  {'organization': organization})
+    organization = get_object_or_404(Term, id=org_id)
+    if request.method == 'POST':
+        form = OrganizationForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+    else:
+        form = OrganizationForm()
+    return render(
+        request, 'organization_edit.html',
+        {'organization': organization, 'form': form}
+        )
 
 
 def membership_edit(request, mmb_id):
@@ -166,38 +177,62 @@ def membership_edit(request, mmb_id):
     """
     d_status_type = dict(Membership.STATUS_CHOICES)
     d_new_renew = dict(Membership.NEW_RENEW_CHOICES)
-    membership = Membership.objects.get(id=mmb_id)
-    return render(request, 'membership_edit.html',
-                  {'membership': membership,
-                   'status_type': d_status_type,
-                   'new_renew': d_new_renew})
+    membership = get_object_or_404(Term, id=mmb_id)
+    if request.method == 'POST':
+        form = MembershipForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+    else:
+        form = MembershipForm()
+    return render(
+        request, 'membership_edit.html',
+        {'membership': membership, 'form': form}
+        )
 
 
 def contact_edit(request, ctc_id):
     """Contact edit view
     """
-    contact = Contact.objects.get(id=ctc_id)
-    return render(request, 'contact_edit.html', {'contact': contact})
+    contact = get_object_or_404(Term, id=ctc_id)
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+    else:
+        form = ContactForm()
+    return render(
+        request, 'contact_edit.html',
+        {'contact': contact, 'form': form}
+        )
 
 
 def term_edit(request, trm_id):
     """Term edit view
     """
-    post = get_object_or_404(Term, id=trm_id)
+    term = get_object_or_404(Term, id=trm_id)
     if request.method == 'POST':
         form = TermForm(request.POST)
         if form.is_valid():
             cd = form.cleaned_data
     else:
-        form = TermForm()
+        form = TermForm(initial=to_dict(term))
     return render(
         request, 'term_edit.html',
-        {'post': post, 'form': form})
+        {'term': term, 'form': form}
+        )
 
 
-def organization_form(request, org_id):
-    """Organization form view
+def note_edit(request, nt_id):
+    """Note edit
     """
-    organization = get_object_or_404(Organization, id=org_id)
-    return render(request, 'organization_form.html',
-                  {'organization': organization})
+    note = get_object_or_404(Term, id=nt_id)
+    if request.method == 'POST':
+        form = NoteForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+    else:
+        form = NoteForm()
+    return render(
+        request, 'note_edit.html',
+        {'note': note, 'form': form}
+        )
