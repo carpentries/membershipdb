@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'djmoney',
     'django_countries',
     'phonenumber_field',
+    'django_tables2',
     'membership',
     'accounts',
 ]
