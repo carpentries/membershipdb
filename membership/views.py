@@ -5,8 +5,11 @@ from django.shortcuts import render, get_object_or_404
 from django.http import Http404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+from django_tables2 import RequestConfig
+
 from .models import Organization, Membership, Contact, Term, Note
 from .forms import TermForm
+from .tables import OrganizationTable
 
 
 def home(request):
@@ -27,16 +30,18 @@ def home(request):
 def organization_list(request):
     """Organizations list view
     """
-    organizations_list = Organization.objects.all()
-    page = request.GET.get('page', 1)
+    organizations = OrganizationTable(Organization.objects.all())
+    RequestConfig(request).configure(organizations)    
+    # organizations_list = Organization.objects.all()
+    # page = request.GET.get('page', 1)
 
-    paginator = Paginator(organizations_list, 10)
-    try:
-        organizations = paginator.page(page)
-    except PageNotAnInteger:
-        organizations = paginator.page(1)
-    except EmptyPage:
-        organizations = paginator.page(paginator.num_pages)
+    # paginator = Paginator(organizations_list, 10)
+    # try:
+    #     organizations = paginator.page(page)
+    # except PageNotAnInteger:
+    #     organizations = paginator.page(1)
+    # except EmptyPage:
+    #     organizations = paginator.page(paginator.num_pages)
 
     return render(request, 'organization_list.html',
                   {'organizations': organizations})
