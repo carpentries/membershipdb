@@ -31,7 +31,7 @@ def organization_list(request):
     """Organizations list view
     """
     organizations = OrganizationTable(Organization.objects.all())
-    RequestConfig(request).configure(organizations)    
+    RequestConfig(request).configure(organizations)
     # organizations_list = Organization.objects.all()
     # page = request.GET.get('page', 1)
 

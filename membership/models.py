@@ -6,10 +6,27 @@ from django.contrib.contenttypes.fields import GenericForeignKey,\
                                                GenericRelation
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
+from django.db.models.fields.related import ManyToManyField
 
 from djmoney.models.fields import MoneyField
 from django_countries.fields import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
+
+
+def to_dict(instance):
+    """Convert an instance to dictionary
+    """
+    opts = instance._meta
+    data = {}
+    for f in opts.concrete_fields + opts.many_to_many:
+        if isinstance(f, ManyToManyField):
+            if instance.pk is None:
+                data[f.name] = []
+            else:
+                data[f.name] = list(f.value_from_object(instance).values_list('pk', flat=True))
+        else:
+            data[f.name] = f.value_from_object(instance)
+    return data
 
 
 class Note(models.Model):

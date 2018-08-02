@@ -1,7 +1,7 @@
 """Membership forms module
 """
 from django.forms import ModelForm
-from .models import Note, Term
+from .models import Note, Term, Organization, Contact, Membership
 
 
 class NoteForm(ModelForm):
@@ -22,3 +22,28 @@ class TermForm(ModelForm):
                   'inh_trainer', 'local_train',
                   'publicize', 'recruit',
                   'coordinate']
+
+
+class OrganizationForm(ModelForm):
+    """Organization Form
+    """
+    class Meta:
+        model = Organization
+        fields = []
+
+
+class ContactForm(ModelForm):
+    """Contact Form
+    """
+    class Meta:
+        model = Contact
+        fields = []
+
+
+class MembershipForm(ModelForm):
+    """Membership Form
+    """
+    class Meta:
+        model = Membership
+        fields = []
+
