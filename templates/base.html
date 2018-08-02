@@ -1,44 +1,40 @@
-{% load static %}<!DOCTYPE html>
+{% load static %}
+<!DOCTYPE html>
 <html>
-  <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>{% block title %}MembershipDB{% endblock %}</title>
-      
-      <!-- Bootstrap core CSS -->
-      <link href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
-  
-      <!-- Custom styles for this template -->
-      <link href="/static/membership.css" rel="stylesheet">
-      <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  </head>  
 
-  <body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}MembershipDB{% endblock %}</title>
 
-    {% block banner %}
-    {% endblock %}
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
 
-    <div class="container-fluid">
-      <div class="jumbotron"> 
-        <div class="row">
-            <div class="col-sm-6">
-            <img align="right" src="/static/carpentries-mdb-hex-white.png" height="150px">
-            </div>
-            <div class="col-sm-6">
-                <br>
-                <br>
-            {% block panel %}
-            {% endblock %}
+    <!-- Custom styles for this template -->
+    <link href="/static/membership.css" rel="stylesheet">
+    <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+    {% block banner %} {% endblock %}
+
+    <div class="container">
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-sm-2">
+                    <img align="center" src="/static/carpentries-mdb-hex-white.png" height="100px">
+                </div>
+                <div class="col-sm-10">
+                    <br> {% block panel %} {% endblock %}
+                </div>
             </div>
         </div>
     </div>
-    
-        {% block breadcrumb %}
-        {% endblock %}
 
-    </div> 
-      {% block content %}
-      {% endblock %}
+    {% block breadcrumb %} {% endblock %}
+    <div class="container">
+        {% block content %} {% endblock %}
     </div>
     <br>
     <div class="container">
@@ -58,35 +54,42 @@
                         <ul class="no-bullet shadow-black">
                             <li>
                                 <a href="https://carpentries.org/contact/" title="Contact">Contact</a>
-                                <li>
-                                    <a href="https://carpentries.org/feed.xml" title="Subscribe to RSS Feed">RSS</a>
-                                    <li>
-                                        <a href="https://carpentries.org/atom.xml" title="Subscribe to Atom Feed">Atom</a>
-                                        <li>
-                                            <a href="https://carpentries.org/sitemap.xml" title="Sitemap for Google Webmaster Tools">sitemap.xml</a>
+                            </li>
+                            <li>
+                                <a href="https://carpentries.org/feed.xml" title="Subscribe to RSS Feed">RSS</a>
+                            </li>
+                            <li>
+                                <a href="https://carpentries.org/atom.xml" title="Subscribe to Atom Feed">Atom</a>
+                            </li>
+                            <li>
+                                <a href="https://carpentries.org/sitemap.xml" title="Sitemap for Google Webmaster Tools">sitemap.xml</a>
+                            </li>
                         </ul>
                     </div>
                     <div class="col-sm-3">
                         <h5 class="shadow-black">Links</h5>
                         <ul class="no-bullet shadow-black">
                             <li>
-                                <a href="https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html" target="_blank"
-                                    title="Code of Conduct">Our Code of Conduct</a>
-                                <li>
-                                    <a href="https://docs.carpentries.org/topic_folders/policies/privacy.html" target="_blank"
-                                        title="Privacy Policy">Our Privacy Policy</a>
-                                    <li>
-                                        <a href="https://software-carpentry.org/" target="_blank" title="Software Carpentry">Software Carpentry website</a>
-                                        <li>
-                                            <a href="http://www.datacarpentry.org/" target="_blank" title="Data Carpentry">Data Carpentry website</a>
-                                            <li>
-                                                <a href="https://info.carpentries.org/" target="_blank" title="FAQs">Frequently Asked Questions</a>
+                                <a href="https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html" target="_blank" title="Code of Conduct">Our Code of Conduct</a>
+                            </li>
+                            <li>
+                                <a href="https://docs.carpentries.org/topic_folders/policies/privacy.html" target="_blank" title="Privacy Policy">Our Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a href="https://software-carpentry.org/" target="_blank" title="Software Carpentry">Software Carpentry website</a>
+                            </li>
+                            <li>
+                                <a href="http://www.datacarpentry.org/" target="_blank" title="Data Carpentry">Data Carpentry website</a>
+                            </li>
+                            <li>
+                                <a href="https://info.carpentries.org/" target="_blank" title="FAQs">Frequently Asked Questions</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </footer>
     </div>
-  </body>
-</html>
+</body>
 
+</html>
