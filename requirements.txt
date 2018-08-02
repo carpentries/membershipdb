@@ -7,6 +7,7 @@ Django==2.0.6
 django-countries==5.3.1
 django-money==0.14
 django-phonenumber-field==2.0.0
+django-tables2
 entrypoints==0.2.3
 html5lib==1.0.1
 ipykernel==4.8.2
