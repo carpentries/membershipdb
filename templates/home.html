@@ -11,7 +11,7 @@
 
         <div class="container">
             <div class="row">
-                <div class="col">
+                <div class="col-sm">
                     <div class="card mb-4 box-shadow text-center">
                         <div class="card-header">
                             <h4 class="my-0 font-weight-normal">ORGANIZATIONS</h4>
@@ -19,7 +19,7 @@
                         <div class="card-body">
                             <h1 class="card-title pricing-card-title"></h1>
                             <ul class="list-unstyled mt-3 mb-4">
-                            <li></li>
+                            <li>{{ organizations }} organizations</li>
                             </ul>
                             <button type="button" class="btn btn-outline-primary" onclick="location.href='{% url 'organization_list' %}'">List       
                             </button> <br><br>
@@ -28,7 +28,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-sm">
                     <div class="card mb-4 box-shadow text-center">
                         <div class="card-header">
                             <h4 class="my-0 font-weight-normal">MEMBERSHIPS</h4>
@@ -36,7 +36,7 @@
                         <div class="card-body">
                             <h1 class="card-title pricing-card-title"></h1>
                             <ul class="list-unstyled mt-3 mb-4">
-                            <li></li>
+                            <li>{{ memberships }} memberships</li>
                             </ul>
                             <button type="button" class="btn btn-outline-primary" onclick="location.href='{% url 'membership_list' %}'">List
                             </button><br><br>
@@ -45,7 +45,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-sm">
                     <div class="card mb-4 box-shadow text-center">
                         <div class="card-header">
                             <h4 class="my-0 font-weight-normal">CONTACTS</h4>
@@ -53,7 +53,7 @@
                         <div class="card-body">
                             <h1 class="card-title pricing-card-title"></h1>
                             <ul class="list-unstyled mt-3 mb-4">
-                            <li></li>
+                            <li>{{ contacts }} contacts</li>
                             </ul>
                             <button type="button" class="btn btn-outline-primary" onclick="location.href='{% url 'contact_list' %}'">List</button>
                             <br><br>
@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-4">
+                <div class="col-sm-4">
                     <div class="card mb-4 box-shadow text-center">
                         <div class="card-header">
                             <h4 class="my-0 font-weight-normal">TERMS</h4>
@@ -72,7 +72,7 @@
                         <div class="card-body">
                             <h1 class="card-title pricing-card-title"></h1>
                             <ul class="list-unstyled mt-3 mb-4">
-                            <li></li>
+                            <li>{{ terms }} terms</li>
                             </ul>
                             <button type="button" class="btn btn-outline-primary" onclick="location.href='{% url 'term_list' %}'">List</button>
                             <br><br>
@@ -81,7 +81,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-sm-4">
                     <div class="card mb-4 box-shadow text-center">
                         <div class="card-header">
                             <h4 class="my-0 font-weight-normal">NOTES</h4>
@@ -89,7 +89,7 @@
                         <div class="card-body">
                             <h1 class="card-title pricing-card-title"></h1>
                             <ul class="list-unstyled mt-3 mb-4">
-                            <li></li>
+                            <li>{{ notes }} notes</li>
                             </ul>
                             <button type="button" class="btn btn-outline-primary" onclick="location.href='{% url 'note_list' %}'">List</button>
                             <br><br>
