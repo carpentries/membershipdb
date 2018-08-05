@@ -12,7 +12,7 @@ from .models import Membership, Organization, Contact, Term, Note,\
 from .forms import MembershipForm, OrganizationForm, ContactForm,\
                    TermForm, NoteForm
 from .tables import OrganizationTable, MembershipTable, ContactTable,\
-                   TermTable
+                   TermTable, NoteTable
 
 
 def home(request):
@@ -41,16 +41,6 @@ def organization_list(request):
     """
     organizations = OrganizationTable(Organization.objects.all())
     RequestConfig(request).configure(organizations)
-    # organizations_list = Organization.objects.all()
-    # page = request.GET.get('page', 1)
-
-    # paginator = Paginator(organizations_list, 10)
-    # try:
-    #     organizations = paginator.page(page)
-    # except PageNotAnInteger:
-    #     organizations = paginator.page(1)
-    # except EmptyPage:
-    #     organizations = paginator.page(paginator.num_pages)
 
     return render(request, 'organization_list.html',
                   {'organizations': organizations})
@@ -92,16 +82,8 @@ def term_list(request):
 def note_list(request):
     """Notes list view
     """
-    notes_list = Note.objects.all()
-    page = request.GET.get('page', 1)
-
-    paginator = Paginator(notes_list, 10)
-    try:
-        notes = paginator.page(page)
-    except PageNotAnInteger:
-        notes = paginator.page(1)
-    except EmptyPage:
-        notes = paginator.page(paginator.num_pages)
+    notes = NoteTable(Note.objects.all())
+    RequestConfig(request).configure(notes)
 
     return render(request, 'note_list.html', {'notes': notes})
 

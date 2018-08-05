@@ -9,51 +9,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th>Title</th>
-          <th>Content</th>
-          <th>Dates</th>
-        </tr>
-      </thead>
-      <tbody>
-        <p>
-        {% for note in notes %}
-          <tr>
-            <td>
-                <a href="{% url 'note_id' note.id %}">{{ note.title }}</a>
-            </td>
-            <td>{{ note.content|slice:"50" }}{% if note.content|length > 50 %}...{% endif %}</td>
-            <td>{{ note.date_time }}</td>
-          </tr>
-        {% endfor %}
-        </p>
-      </tbody>
-    </table>
-
-    {% if notes.has_other_pages %}
-    <ul class="pagination">
-      {% if notes.has_previous %}
-        <li><a href="?page={{ notes.previous_page_number }}">&laquo;</a></li>
-      {% else %}
-        <li class="disabled"><span>&laquo;</span></li>
-      {% endif %}
-      {% for i in notes.paginator.page_range %}
-        {% if notes.number == i %}
-          <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-        {% else %}
-          <li><a href="?page={{ i }}">{{ i }}</a></li>
-        {% endif %}
-      {% endfor %}
-      {% if notes.has_next %}
-        <li><a href="?page={{ notes.next_page_number }}">&raquo;</a></li>
-      {% else %}
-        <li class="disabled"><span>&raquo;</span></li>
-      {% endif %}
-    </ul>
-  {% endif %}
-
-  </div>
+      <div class="btn btn-outline-primary" href="#">Add new</div>
+      {% load render_table from django_tables2 %}
+      {% render_table notes %}
 {% endblock %}
