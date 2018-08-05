@@ -39,7 +39,7 @@ class Note(models.Model):
         help_text='Title of the Note'
         )
     content = models.TextField(
-        verbose_name='Note content',
+        verbose_name='Content',
         max_length=512,
         help_text='Content of the Note'
         )
