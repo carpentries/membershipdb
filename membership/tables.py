@@ -13,6 +13,7 @@ class OrganizationTable(tables.Table):
         model = Organization
         
         fields = ('name','country','url')
+        order_by = ('name')
         template_name = 'django_tables2/bootstrap.html'
 
 
@@ -23,6 +24,7 @@ class MembershipTable(tables.Table):
         model = Membership
 
         fields = ('organization','member_type','status')
+        order_by = ('organization')
         template_name = 'django_tables2/bootstrap.html'
 
 
@@ -34,6 +36,7 @@ class ContactTable(tables.Table):
         model = Contact
 
         fields = ('name','last_name','organization','title')
+        order_by = ('name','last_name')
         template_name = 'django_tables2/bootstrap.html'
 
 
@@ -44,5 +47,6 @@ class TermTable(tables.Table):
         model = Term
 
         fields = ('mem_type','n_workshops')
+        order_by = ('mem_type')
         template_name = 'django_tables2/bootstrap.html'
 
