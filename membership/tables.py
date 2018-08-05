@@ -7,8 +7,20 @@ from django_tables2.utils import A
 
 class OrganizationTable(tables.Table):
     name = tables.LinkColumn('organization_id', args=[A('id')])
+
     class Meta:
         model = Organization
         
         fields = ('name','country','url')
         template_name = 'django_tables2/bootstrap.html'
+
+
+class MembershipTable(tables.Table):
+    organization = tables.LinkColumn('membership_id', args=[A('id')])
+    
+    class Meta:
+        model = Membership
+
+        fields = ('organization','member_type','status')
+        template_name = 'django_tables2/bootstrap.html'
+

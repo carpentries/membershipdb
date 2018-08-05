@@ -9,55 +9,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <div class="btn btn-outline-primary" href="#">Add new</div>
-        <br>
-        <br>
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th>Organization</th>
-          <th>Membership Type</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <p>
-        {% for membership in memberships %}
-          <tr>
-            <td>
-              <a href="{% url 'membership_id' membership.id %}">{{ membership.organization.name }}</a>
-            </td>
-            <td><small class="text-muted d-block">{{ membership.member_type }}</small></td> 
-            <td><small class="text-muted d-block">{{ membership.status }}</small></td> 
-          </tr>
-        {% endfor %}
-        </p>
-      </tbody>
-    </table>
-
-    {% if memberships.has_other_pages %}
-    <ul class="pagination">
-      {% if memberships.has_previous %}
-        <li><a href="?page={{ memberships.previous_page_number }}">&laquo;</a></li>
-      {% else %}
-        <li class="disabled"><span>&laquo;</span></li>
-      {% endif %}
-      {% for i in memberships.paginator.page_range %}
-        {% if memberships.number == i %}
-          <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-        {% else %}
-          <li><a href="?page={{ i }}">{{ i }}</a></li>
-        {% endif %}
-      {% endfor %}
-      {% if memberships.has_next %}
-        <li><a href="?page={{ memberships.next_page_number }}">&raquo;</a></li>
-      {% else %}
-        <li class="disabled"><span>&raquo;</span></li>
-      {% endif %}
-    </ul>
-  {% endif %}
-
-  </div>
-
+  <div class="btn btn-outline-primary" href="#">Add new</div>
+      {% load render_table from django_tables2 %}
+      {% render_table memberships %}
 {% endblock %}
