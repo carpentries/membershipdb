@@ -5,21 +5,23 @@
     <br>
 {% endblock %}
 
-{% block breadcrumb %}  
+{% block breadcrumb %} 
+<div class="container"> 
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{% url 'membership_list' %}">Membership</a></li>
       <li class="breadcrumb-item">{{ membership.organization }}</li>
     </ol>
   </nav>
+</div>
 {% endblock %}
 
 {% block content %}
 <div class="container">
-  <div class="row float-right">
-      <div class="btn btn-outline-primary" onclick="location.href='{% url 'membership_edit' membership.id %}'">Edit</div>
-      <div class="btn btn-outline-primary" href="#">Delete</div>
-  </div>
+    <div class="row float-right">
+        <div class="btn btn-outline-primary" onclick="location.href='{% url 'membership_edit' membership.id %}'">Edit</div>
+        <div class="btn btn-outline-primary" href="#">Delete</div>
+    </div>
 <br>
 <br>
   <div class="row">
