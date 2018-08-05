@@ -7,6 +7,8 @@ from django_tables2.utils import A
 
 
 class OrganizationTable(tables.Table):
+    """Organization table confiiguration
+    """
     name = tables.LinkColumn('organization_id', args=[A('id')])
 
     class Meta:
@@ -17,6 +19,8 @@ class OrganizationTable(tables.Table):
 
 
 class MembershipTable(tables.Table):
+    """Membership table configuration
+    """
     organization = tables.LinkColumn('membership_id', args=[A('id')])
     
     class Meta:
@@ -27,6 +31,8 @@ class MembershipTable(tables.Table):
 
 
 class ContactTable(tables.Table):
+    """Contact table configuration
+    """
     name = tables.LinkColumn('contact_id', args=[A('id')])
     last_name = tables.LinkColumn('contact_id', args=[A('id')])
 
@@ -38,6 +44,8 @@ class ContactTable(tables.Table):
 
 
 class TermTable(tables.Table):
+    """Term table configuration
+    """
     mem_type = tables.LinkColumn('term_id', args=[A('id')])
 
     class Meta:
@@ -48,6 +56,8 @@ class TermTable(tables.Table):
 
 
 class NoteTable(tables.Table):
+    """Note table configuration
+    """
     title = tables.LinkColumn('note_id', args=[A('id')])
 
     class Meta:
