@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django_countries',
     'phonenumber_field',
     'django_tables2',
+    'django_filters',
     'membership',
 ]
 
