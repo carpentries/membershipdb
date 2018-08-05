@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'django_tables2',
     'membership',
-    'accounts',
 ]
 
 MIDDLEWARE = [
