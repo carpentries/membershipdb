@@ -9,51 +9,7 @@
 {% endblock %}
 
 {% block content %}
-  <div class="container">
       <div class="btn btn-outline-primary" href="#">Add new</div>
-      <br>
-      <br>
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th>Membership Type</th>
-        </tr>
-      </thead>
-      <tbody>
-        <p>
-        {% for term in terms %}
-          <tr>
-            <td>
-                <a href="{% url 'term_id' term.id %}">{{ term.mem_type }}</a>
-            </td>
-          </tr>
-        {% endfor %}
-        </p>
-      </tbody>
-    </table>
-
-    {% if terms.has_other_pages %}
-    <ul class="pagination">
-      {% if terms.has_previous %}
-        <li><a href="?page={{ terms.previous_page_number }}">&laquo;</a></li>
-      {% else %}
-        <li class="disabled"><span>&laquo;</span></li>
-      {% endif %}
-      {% for i in terms.paginator.page_range %}
-        {% if terms.number == i %}
-          <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-        {% else %}
-          <li><a href="?page={{ i }}">{{ i }}</a></li>
-        {% endif %}
-      {% endfor %}
-      {% if terms.has_next %}
-        <li><a href="?page={{ terms.next_page_number }}">&raquo;</a></li>
-      {% else %}
-        <li class="disabled"><span>&raquo;</span></li>
-      {% endif %}
-    </ul>
-  {% endif %}
-
-  </div>
-
+      {% load render_table from django_tables2 %}
+      {% render_table terms %}
 {% endblock %}

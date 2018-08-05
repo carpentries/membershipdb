@@ -5,6 +5,7 @@ import django_tables2 as tables
 from .models import Organization, Membership, Contact, Term, Note
 from django_tables2.utils import A
 
+
 class OrganizationTable(tables.Table):
     name = tables.LinkColumn('organization_id', args=[A('id')])
 
@@ -33,5 +34,15 @@ class ContactTable(tables.Table):
         model = Contact
 
         fields = ('name','last_name','organization','title')
+        template_name = 'django_tables2/bootstrap.html'
+
+
+class TermTable(tables.Table):
+    mem_type = tables.LinkColumn('term_id', args=[A('id')])
+
+    class Meta:
+        model = Term
+
+        fields = ('mem_type','n_workshops')
         template_name = 'django_tables2/bootstrap.html'
 

@@ -11,7 +11,8 @@ from .models import Membership, Organization, Contact, Term, Note,\
                     to_dict
 from .forms import MembershipForm, OrganizationForm, ContactForm,\
                    TermForm, NoteForm
-from .tables import OrganizationTable, MembershipTable, ContactTable
+from .tables import OrganizationTable, MembershipTable, ContactTable,\
+                   TermTable
 
 
 def home(request):
@@ -70,7 +71,7 @@ def contact_list(request):
     """Contacts list view
     """
     contacts = ContactTable(Contact.objects.all())
-    RequestConfig(request). configure(contacts)
+    RequestConfig(request).configure(contacts)
 
     return render(
         request, 'contact_list.html',
@@ -80,22 +81,12 @@ def contact_list(request):
 def term_list(request):
     """Terms list view
     """
-    d_term_type = dict(Term.TYPE_CHOICES)
-    terms_list = Term.objects.all()
-    for term in terms_list:
-        term.mem_type = d_term_type[term.mem_type]
+    terms = TermTable(Term.objects.all())
+    RequestConfig(request).configure(terms)
 
-    page = request.GET.get('page', 1)
-
-    paginator = Paginator(terms_list, 10)
-    try:
-        terms = paginator.page(page)
-    except PageNotAnInteger:
-        terms = paginator.page(1)
-    except EmptyPage:
-        terms = paginator.page(paginator.num_pages)
-
-    return render(request, 'term_list.html', {'terms': terms})
+    return render(
+        request, 'term_list.html', 
+        {'terms': terms})
 
 
 def note_list(request):
