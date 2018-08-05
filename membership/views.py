@@ -11,7 +11,7 @@ from .models import Membership, Organization, Contact, Term, Note,\
                     to_dict
 from .forms import MembershipForm, OrganizationForm, ContactForm,\
                    TermForm, NoteForm
-from .tables import OrganizationTable, MembershipTable
+from .tables import OrganizationTable, MembershipTable, ContactTable
 
 
 def home(request):
@@ -61,23 +61,16 @@ def membership_list(request):
     memberships = MembershipTable(Membership.objects.all())
     RequestConfig(request).configure(memberships)
 
-    return render(request, 'membership_list.html',
-                  {'memberships': memberships})
+    return render(
+        request, 'membership_list.html',
+        {'memberships': memberships})
 
 
 def contact_list(request):
     """Contacts list view
     """
-    contacts_list = Contact.objects.all()
-    page = request.GET.get('page', 1)
-
-    paginator = Paginator(contacts_list, 10)
-    try:
-        contacts = paginator.page(page)
-    except PageNotAnInteger:
-        contacts = paginator.page(1)
-    except EmptyPage:
-        contacts = paginator.page(paginator.num_pages)
+    contacts = ContactTable(Contact.objects.all())
+    RequestConfig(request). configure(contacts)
 
     return render(
         request, 'contact_list.html',

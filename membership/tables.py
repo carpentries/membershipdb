@@ -24,3 +24,14 @@ class MembershipTable(tables.Table):
         fields = ('organization','member_type','status')
         template_name = 'django_tables2/bootstrap.html'
 
+
+class ContactTable(tables.Table):
+    name = tables.LinkColumn('contact_id', args=[A('id')])
+    last_name = tables.LinkColumn('contact_id', args=[A('id')])
+
+    class Meta:
+        model = Contact
+
+        fields = ('name','last_name','organization','title')
+        template_name = 'django_tables2/bootstrap.html'
+

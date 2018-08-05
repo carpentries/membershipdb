@@ -10,62 +10,7 @@
 {% endblock %}
 
 {% block content %}
-  <div class="container">
       <div class="btn btn-outline-primary" href="#">Add new</div>
-      <br>
-      <br>
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th>Name</th>
-          <th>Lastname</th>
-          <th>Organization</th>
-          <th>Title</th>
-          <th style="text-align:center;">Primary Contact</th>
-        </tr>
-      </thead>
-      <tbody>
-        <p>
-        {% for contact in contacts %}
-          <tr>
-            <td>
-                <a href="{% url 'contact_id' contact.id %}">{{ contact.name }}</a>
-            </td>
-            <td>
-                <a href="{% url 'contact_id' contact.id %}">{{ contact.last_name }}</a>
-            </td>
-            <td>{{ contact.organization }}</td>           
-            <td>{{ contact.title }}</td>
-            <td style="text-align:center;"><div class="form-check">
-                <input type="checkbox" class="form-check-input center" id="contactPrimary" {% if contact.member_contact %}checked="checked"{% endif %}> 
-            </div></td>
-          </tr>
-        {% endfor %}
-        </p>
-      </tbody>
-    </table>
-
-    {% if contacts.has_other_pages %}
-    <ul class="pagination">
-      {% if contacts.has_previous %}
-        <li><a href="?page={{ contacts.previous_page_number }}">&laquo;</a></li>
-      {% else %}
-        <li class="disabled"><span>&laquo;</span></li>
-      {% endif %}
-      {% for i in contacts.paginator.page_range %}
-        {% if contacts.number == i %}
-          <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-        {% else %}
-          <li><a href="?page={{ i }}">{{ i }}</a></li>
-        {% endif %}
-      {% endfor %}
-      {% if contacts.has_next %}
-        <li><a href="?page={{ contacts.next_page_number }}">&raquo;</a></li>
-      {% else %}
-        <li class="disabled"><span>&raquo;</span></li>
-      {% endif %}
-    </ul>
-  {% endif %}
-
-  </div>
+      {% load render_table from django_tables2 %}
+      {% render_table contacts %}
 {% endblock %}
