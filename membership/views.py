@@ -40,7 +40,7 @@ def organization_list(request):
     """Organizations list view
     """
     organizations = OrganizationTable(Organization.objects.all())
-    RequestConfig(request).configure(organizations)
+    RequestConfig(request, paginate={'per_page': 10}).configure(organizations)
 
     return render(request, 'organization_list.html',
                   {'organizations': organizations})
@@ -50,7 +50,7 @@ def membership_list(request):
     """Memberships list view
     """
     memberships = MembershipTable(Membership.objects.all())
-    RequestConfig(request).configure(memberships)
+    RequestConfig(request, paginate={'per_page': 10}).configure(memberships)
 
     return render(
         request, 'membership_list.html',
@@ -61,7 +61,7 @@ def contact_list(request):
     """Contacts list view
     """
     contacts = ContactTable(Contact.objects.all())
-    RequestConfig(request).configure(contacts)
+    RequestConfig(request, paginate={'per_page': 10}).configure(contacts)
 
     return render(
         request, 'contact_list.html',
@@ -72,7 +72,7 @@ def term_list(request):
     """Terms list view
     """
     terms = TermTable(Term.objects.all())
-    RequestConfig(request).configure(terms)
+    RequestConfig(request, paginate={'per_page': 10}).configure(terms)
 
     return render(
         request, 'term_list.html', 
